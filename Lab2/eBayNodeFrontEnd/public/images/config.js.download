@@ -1,0 +1,3159 @@
+window.config = {
+  "enablePreload": true,
+  "enableLogs": false,
+  "redirectTimeout": 2000,
+  "fallbackEnabled": true,
+  "rememberMeFeatureEnabled": true,
+  "fraudnet": {
+    "skipPxp": true,
+    "sourceId": "PROXWEB_SIGNIN"
+  },
+  "features": {
+    "DEFAULT": {},
+    "US": {
+      "languageToggle": true
+    },
+    "CA": {
+      "languageToggle": true
+    },
+    "AT": {
+      "isoCurrencyFormat": true
+    },
+    "BE": {
+      "isoCurrencyFormat": true
+    },
+    "CH": {
+      "isoCurrencyFormat": true
+    },
+    "DK": {
+      "isoCurrencyFormat": true
+    },
+    "PL": {
+      "isoCurrencyFormat": true
+    },
+    "NO": {
+      "isoCurrencyFormat": true
+    },
+    "NL": {
+      "isoCurrencyFormat": true
+    },
+    "SE": {
+      "isoCurrencyFormat": false
+    },
+    "TR": {
+      "isoCurrencyFormat": true
+    },
+    "BA": {
+      "isoCurrencyFormat": true
+    },
+    "CY": {
+      "isoCurrencyFormat": true
+    },
+    "EE": {
+      "isoCurrencyFormat": true
+    },
+    "HR": {
+      "isoCurrencyFormat": true
+    },
+    "LU": {
+      "isoCurrencyFormat": true
+    },
+    "LV": {
+      "isoCurrencyFormat": false
+    },
+    "MT": {
+      "isoCurrencyFormat": false
+    },
+    "MX": {
+      "isoCurrencyFormat": false
+    },
+    "NZ": {
+      "isoCurrencyFormat": false
+    },
+    "SI": {
+      "isoCurrencyFormat": true
+    },
+    "SK": {
+      "isoCurrencyFormat": true
+    },
+    "KR": {
+      "isoCurrencyFormat": false
+    },
+    "LT": {
+      "isoCurrenctFormat": true
+    },
+    "MY": {
+      "isoCurrencyFormat": false
+    },
+    "SG": {
+      "isoCurrencyFormat": false
+    },
+    "BG": {
+      "isoCurrencyFormat": true
+    },
+    "CZ": {
+      "isoCurrencyFormat": true
+    },
+    "FI": {
+      "isoCurrencyFormat": true
+    },
+    "GR": {
+      "isoCurrencyFormat": true
+    },
+    "HU": {
+      "isoCurrencyFormat": true
+    },
+    "RO": {
+      "isoCurrencyFormat": true
+    },
+    "UA": {
+      "isoCurrencyFormat": false
+    },
+    "HK": {
+      "isoCurrencyFormat": false,
+      "languageToggle": true
+    },
+    "TW": {
+      "isoCurrencyFormat": false,
+      "languageToggle": true
+    },
+    "TH": {
+      "isoCurrencyFormat": false,
+      "languageToggle": true
+    },
+    "ID": {
+      "isoCurrencyFormat": true,
+      "languageToggle": true
+    },
+    "IE": {
+      "isoCurrencyFormat": false
+    },
+    "PT": {
+      "isoCurrencyFormat": true,
+      "languageToggle": true
+    },
+    "BR": {
+      "cardTypeServiceCallRequired": true,
+      "showAcceptedCardLogos": true,
+      "addressNormalization": true,
+      "shippingAddressNormalization": true,
+      "maskCVV": true,
+      "enableForgotPasswordURLCountry": true,
+      "FormatAddressForNormalization": "AddressBR",
+      "sortStatesForAddress": "provinceListBR",
+      "zipcodeInputParams": {
+        "maxLength": 9,
+        "minLength": 5,
+        "formatZip": true,
+        "formatPattern": "[^0-9]"
+      }
+    }
+  },
+  "addressNormalizationRequired": [
+    "AU"
+  ],
+  "heliosThrottle": {
+    "pxp": {
+      "pgName": "xo_helios_to_prox_throttle",
+      "patterns": "xo_helios_to_prox_throttle_treatment"
+    }
+  },
+  "bankSupportedCountries": [
+    "DE"
+  ],
+  "app_redirect_uri": "https://www.paypal.com",
+  "proxURL": "webapps/helios/",
+  "ulRedirectURI": "https://www.paypal.com/auth/stepup",
+  "creditEligibleCountries": [
+    "US",
+    "GB"
+  ],
+  "apacCountries": [
+    "BN",
+    "BT",
+    "C2",
+    "FM",
+    "HK",
+    "ID",
+    "IN",
+    "JP",
+    "KH",
+    "KR",
+    "LA",
+    "LK",
+    "MN",
+    "MV",
+    "MY",
+    "NP",
+    "NZ",
+    "PH",
+    "SG",
+    "TH",
+    "TO",
+    "TW",
+    "VN",
+    "WS"
+  ],
+  "buyerEligibleCountries": [
+    "AD",
+    "AE",
+    "AG",
+    "AI",
+    "AL",
+    "AM",
+    "AN",
+    "AO",
+    "AT",
+    "AU",
+    "AW",
+    "AZ",
+    "BA",
+    "BB",
+    "BE",
+    "BF",
+    "BG",
+    "BH",
+    "BI",
+    "BJ",
+    "BM",
+    "BN",
+    "BO",
+    "BR",
+    "BS",
+    "BT",
+    "BW",
+    "BY",
+    "BZ",
+    "CA",
+    "CD",
+    "CG",
+    "CH",
+    "CI",
+    "CK",
+    "CL",
+    "CM",
+    "CO",
+    "CR",
+    "CV",
+    "CY",
+    "CZ",
+    "DE",
+    "DJ",
+    "DK",
+    "DM",
+    "DO",
+    "DZ",
+    "EC",
+    "EE",
+    "EG",
+    "ER",
+    "ES",
+    "ET",
+    "FI",
+    "FJ",
+    "FK",
+    "FM",
+    "FO",
+    "FR",
+    "GA",
+    "GB",
+    "GD",
+    "GE",
+    "GF",
+    "GI",
+    "GL",
+    "GM",
+    "GN",
+    "GP",
+    "GR",
+    "GT",
+    "GW",
+    "GY",
+    "HK",
+    "HN",
+    "HR",
+    "HU",
+    "ID",
+    "IE",
+    "IL",
+    "IS",
+    "IT",
+    "JM",
+    "JO",
+    "KE",
+    "KG",
+    "KH",
+    "KI",
+    "KM",
+    "KN",
+    "KR",
+    "KW",
+    "KY",
+    "KZ",
+    "LA",
+    "LC",
+    "LI",
+    "LK",
+    "LS",
+    "LT",
+    "LU",
+    "LV",
+    "MA",
+    "MC",
+    "MD",
+    "ME",
+    "MG",
+    "MH",
+    "MK",
+    "ML",
+    "MN",
+    "MQ",
+    "MR",
+    "MS",
+    "MT",
+    "MU",
+    "MV",
+    "MW",
+    "MX",
+    "MY",
+    "MZ",
+    "NA",
+    "NC",
+    "NE",
+    "NF",
+    "NG",
+    "NI",
+    "NL",
+    "NO",
+    "NP",
+    "NR",
+    "NU",
+    "NZ",
+    "OM",
+    "PA",
+    "PE",
+    "PF",
+    "PG",
+    "PH",
+    "PL",
+    "PM",
+    "PN",
+    "PT",
+    "PW",
+    "PY",
+    "QA",
+    "RE",
+    "RO",
+    "RS",
+    "RW",
+    "SA",
+    "SB",
+    "SC",
+    "SE",
+    "SG",
+    "SH",
+    "SI",
+    "SJ",
+    "SK",
+    "SL",
+    "SM",
+    "SN",
+    "SO",
+    "SR",
+    "ST",
+    "SV",
+    "SZ",
+    "TC",
+    "TD",
+    "TG",
+    "TH",
+    "TJ",
+    "TM",
+    "TN",
+    "TO",
+    "TR",
+    "TT",
+    "TV",
+    "TW",
+    "TZ",
+    "UA",
+    "UG",
+    "US",
+    "UY",
+    "VA",
+    "VC",
+    "VE",
+    "VG",
+    "VN",
+    "VU",
+    "WF",
+    "WS",
+    "YE",
+    "YT",
+    "ZA",
+    "ZM",
+    "ZW"
+  ],
+  "locale": {
+    "country": {
+      "resolvers": [
+        "viaLocaleTestUrlParam",
+        "viaUserProfile",
+        "viaCheckoutSession",
+        "viaCountryLocaleParam",
+        "viaCountryCoBrand",
+        "viaCheckoutShipping",
+        "viaMerchantCountry",
+        "viaLangCookie",
+        "viaBrowserPref",
+        "viaDefault"
+      ]
+    },
+    "lang": {
+      "resolvers": [
+        "viaLanguagePreference",
+        "viaLocaleTestUrlParam",
+        "viaUserProfile",
+        "viaLangCookie",
+        "viaLangLocaleParam",
+        "viaMerchantLocale",
+        "viaBrowserPref",
+        "viaDefault"
+      ]
+    }
+  },
+  "currencySymbols": {
+    "ALL": "L",
+    "AFN": "؋",
+    "ARS": "$",
+    "AWG": "ƒ",
+    "AUD": "$",
+    "AZN": "₼",
+    "BSD": "$",
+    "BBD": "$",
+    "BTN": "BTN",
+    "BYR": "p.",
+    "BZD": "BZ$",
+    "BMD": "$",
+    "BOB": "Bs.",
+    "BAM": "KM",
+    "BWP": "P",
+    "BGN": "лв",
+    "BRL": "R$",
+    "BND": "$",
+    "KHR": "៛",
+    "CAD": "$",
+    "KYD": "$",
+    "CLP": "$",
+    "CNY": "¥",
+    "COP": "$",
+    "CRC": "₡",
+    "HRK": "kn",
+    "CUP": "₱",
+    "CZK": "Kč",
+    "DKK": "Dkr",
+    "DOP": "RD$",
+    "XCD": "$",
+    "EGP": "£",
+    "SVC": "$",
+    "EEK": "kr",
+    "EUR": "€",
+    "FKP": "£",
+    "FJD": "$",
+    "GHC": "¢",
+    "GIP": "£",
+    "GTQ": "Q",
+    "GGP": "£",
+    "GYD": "$",
+    "HNL": "L",
+    "HKD": "$",
+    "HUF": "Ft",
+    "ISK": "kr",
+    "INR": "₹",
+    "IDR": "Rp",
+    "IRR": "﷼",
+    "IMP": "£",
+    "ILS": "₪",
+    "JMD": "J$",
+    "JPY": "¥",
+    "JEP": "£",
+    "KES": "KSh",
+    "KZT": "лв",
+    "KPW": "₩",
+    "KRW": "₩",
+    "KGS": "лв",
+    "LAK": "₭",
+    "LVL": "Ls",
+    "LBP": "£",
+    "LRD": "$",
+    "LTL": "Lt",
+    "MKD": "ден",
+    "MVR": "MVR",
+    "MYR": "RM",
+    "MUR": "₨",
+    "MXN": "$",
+    "MNT": "₮",
+    "MZN": "MT",
+    "NAD": "$",
+    "NPR": "₨",
+    "ANG": "ƒ",
+    "NZD": "$",
+    "NIO": "C$",
+    "NGN": "₦",
+    "NOK": "Nkr",
+    "OMR": "﷼",
+    "PKR": "₨",
+    "PAB": "B/.",
+    "PYG": "Gs",
+    "PEN": "S/.",
+    "PHP": "₱",
+    "PLN": "zł",
+    "QAR": "﷼",
+    "RON": "lei",
+    "RUB": "",
+    "SHP": "£",
+    "SAR": "﷼",
+    "RSD": "Дин.",
+    "SCR": "₨",
+    "SGD": "$",
+    "SBD": "$",
+    "SOS": "S",
+    "ZAR": "R",
+    "LKR": "₨",
+    "SEK": "kr",
+    "CHF": "Fr.",
+    "SRD": "$",
+    "SYP": "£",
+    "TOP": "T$",
+    "TZS": "TSh",
+    "TWD": "NT$",
+    "THB": "฿",
+    "TTD": "TT$",
+    "TL": "TL",
+    "TRY": "",
+    "TRL": "₤",
+    "TVD": "$",
+    "UGX": "USh",
+    "UAH": "₴",
+    "GBP": "£",
+    "USD": "$",
+    "UYU": "$U",
+    "UZS": "лв",
+    "VEF": "Bs",
+    "VND": "₫",
+    "WST": "$",
+    "YER": "﷼",
+    "ZWD": "Z$"
+  },
+  "currencyFormat": {
+    "AE": {
+      "ar": {
+        ",": "٬",
+        ".": "٫"
+      }
+    },
+    "AG": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "AI": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "AR": {
+      "es": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "AT": {
+      "de": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "AU": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "BA": {
+      "en": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "BB": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "BE": {
+      "en": {
+        ",": ".",
+        ".": ","
+      },
+      "fr": {
+        ",": ".",
+        ".": ","
+      },
+      "nl": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "BF": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "BH": {
+      "ar": {
+        ",": "٬",
+        ".": "٫"
+      }
+    },
+    "BG": {
+      "en": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "BI": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "BJ": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "BM": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "BO": {
+      "es": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "BR": {
+      "pt": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "BS": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "BW": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "BZ": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "CA": {
+      "en": {
+        ",": ",",
+        ".": "."
+      },
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "CD": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "CG": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "CH": {
+      "de": {
+        ",": "'",
+        ".": "."
+      },
+      "fr": {
+        ",": " ",
+        ".": "."
+      }
+    },
+    "CI": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "CK": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "CL": {
+      "es": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "CM": {
+      "en": {
+        ",": ",",
+        ".": "."
+      },
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "CO": {
+      "es": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "CR": {
+      "es": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "CY": {
+      "en": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "CZ": {
+      "en": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "DE": {
+      "de": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "DJ": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "DK": {
+      "da": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "DM": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "DO": {
+      "es": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "DZ": {
+      "ar": {
+        ",": ".",
+        ".": ","
+      },
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "EC": {
+      "es": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "EE": {
+      "en": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "EG": {
+      "ar": {
+        ",": "٬",
+        ".": "٫"
+      }
+    },
+    "ER": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "ES": {
+      "es": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "FI": {
+      "en": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "FJ": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "FK": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "FM": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "FR": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "GA": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "GB": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "GD": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "GF": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "GI": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "GL": {
+      "da": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "GM": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "GN": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "GP": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "GR": {
+      "en": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "GT": {
+      "es": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "GY": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "HK": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "HN": {
+      "es": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "HU": {
+      "en": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "ID": {
+      "en": {
+        ",": ".",
+        ".": "."
+      },
+      "id": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "IE": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "IL": {
+      "he": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "IN": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "IT": {
+      "it": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "JM": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "JO": {
+      "ar": {
+        ",": "٬",
+        ".": "٫"
+      }
+    },
+    "JP": {
+      "ja": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "KE": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "KI": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "KM": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "KN": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "KR": {
+      "en": {
+        ",": " ",
+        ".": ","
+      },
+      "ko": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "KW": {
+      "ar": {
+        ",": "٬",
+        ".": "٫"
+      }
+    },
+    "KY": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "LC": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "LS": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "LU": {
+      "de": {
+        ",": ".",
+        ".": ","
+      },
+      "en": {
+        ",": ".",
+        ".": ","
+      },
+      "fr": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "LT": {
+      "en": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "LV": {
+      "en": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "MA": {
+      "ar": {
+        ",": ".",
+        ".": ","
+      },
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "MC": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "MG": {
+      "en": {
+        ",": ",",
+        ".": "."
+      },
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "MH": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "ML": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "MQ": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "MR": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "MS": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "MT": {
+      "en": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "MU": {
+      "en": {
+        ",": ",",
+        ".": "."
+      },
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "MW": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "MX": {
+      "es": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "NA": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "NC": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "NE": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "NF": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "NG": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "NI": {
+      "es": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "NL": {
+      "nl": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "NO": {
+      "nb": {
+        ",": " ",
+        ".": ","
+      },
+      "no": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "NR": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "NU": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "NZ": {
+      "en": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "OM": {
+      "ar": {
+        ",": "٬",
+        ".": "٫"
+      }
+    },
+    "PA": {
+      "es": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "PE": {
+      "es": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "PF": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "PG": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "PH": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "PL": {
+      "pl": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "PM": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "PN": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "PT": {
+      "en": {
+        ",": ".",
+        ".": ","
+      },
+      "pt": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "PW": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "PY": {
+      "es": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "QA": {
+      "ar": {
+        ",": "٬",
+        ".": "٫"
+      }
+    },
+    "RE": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "RO": {
+      "en": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "RU": {
+      "ru": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "RW": {
+      "en": {
+        ",": ",",
+        ".": "."
+      },
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "SA": {
+      "ar": {
+        ",": "٬",
+        ".": "٫"
+      }
+    },
+    "SB": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "SC": {
+      "en": {
+        ",": ",",
+        ".": "."
+      },
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "SE": {
+      "sv": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "SG": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "SH": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "SI": {
+      "en": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "SK": {
+      "en": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "SL": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "SN": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "SV": {
+      "es": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "SZ": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "TC": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "TD": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "TG": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "TH": {
+      "th": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "TN": {
+      "ar": {
+        ",": ".",
+        ".": ","
+      },
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "TO": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "TR": {
+      "tr": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "TT": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "TV": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "TW": {
+      "en": {
+        ",": ""
+      },
+      "zh": {
+        ",": ""
+      }
+    },
+    "TZ": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "UA": {
+      "en": {
+        ",": " ",
+        ".": ","
+      },
+      "ru": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "UG": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "US": {
+      "en": {
+        ",": ",",
+        ".": "."
+      },
+      "es": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "UY": {
+      "es": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "VC": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "VE": {
+      "es": {
+        ",": ".",
+        ".": ","
+      }
+    },
+    "VG": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "VU": {
+      "en": {
+        ",": ",",
+        ".": "."
+      },
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "WF": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "WS": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "YE": {
+      "ar": {
+        ",": "٬",
+        ".": "٫"
+      }
+    },
+    "YT": {
+      "fr": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "ZA": {
+      "en": {
+        ",": " ",
+        ".": ","
+      }
+    },
+    "ZM": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    },
+    "ZW": {
+      "en": {
+        ",": ",",
+        ".": "."
+      }
+    }
+  },
+  "supportedCountries": {
+    "SY": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MT": [
+      "en"
+    ],
+    "MU": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SD": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TK": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MV": [
+      "en"
+    ],
+    "TF": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MW": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "PK": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MX": [
+      "es",
+      "en"
+    ],
+    "MY": [
+      "en"
+    ],
+    "MP": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MZ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "PS": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "NA": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "PR": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "NC": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "NE": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "TP": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TL": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "JP": [
+      "ja",
+      "en"
+    ],
+    "JO": [
+      "ar",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "IL": [
+      "he",
+      "en"
+    ],
+    "IE": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "ID": [
+      "id",
+      "en"
+    ],
+    "HU": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "JM": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "IT": [
+      "it",
+      "en"
+    ],
+    "IS": [
+      "en"
+    ],
+    "IN": [
+      "en"
+    ],
+    "SA": [
+      "ar",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "KP": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "RW": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "LB": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "RU": [
+      "ru",
+      "en"
+    ],
+    "LR": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "RS": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "LY": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "RO": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "IO": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "RE": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "IQ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "QA": [
+      "en",
+      "fr",
+      "es",
+      "zh",
+      "ar"
+    ],
+    "IR": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "PY": [
+      "es",
+      "en"
+    ],
+    "JE": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MO": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SC": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "SB": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "AZ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "BA": [
+      "en"
+    ],
+    "KY": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "AU": [
+      "en"
+    ],
+    "KZ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "AW": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "BF": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "BG": [
+      "en"
+    ],
+    "BB": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "BE": [
+      "en",
+      "nl",
+      "fr"
+    ],
+    "KH": [
+      "en"
+    ],
+    "KI": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "BH": [
+      "ar",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "KE": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "BI": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "KG": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "KR": [
+      "ko",
+      "en"
+    ],
+    "KW": [
+      "ar",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "KM": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "KN": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "LI": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "HM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GU": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "LK": [
+      "en"
+    ],
+    "LA": [
+      "en"
+    ],
+    "UG": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GS": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "LC": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "US": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GQ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "LU": [
+      "en",
+      "de",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GH": [
+      "en"
+    ],
+    "LV": [
+      "en",
+      "ru",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GG": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "LS": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "EH": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "LT": [
+      "en",
+      "ru",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "CX": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TR": [
+      "tr",
+      "en"
+    ],
+    "TT": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MA": [
+      "ar",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TN": [
+      "ar",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TO": [
+      "en"
+    ],
+    "MC": [
+      "fr",
+      "en"
+    ],
+    "TZ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "UA": [
+      "en",
+      "ru",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TV": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "IM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TW": [
+      "zh",
+      "en"
+    ],
+    "HT": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GD": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GB": [
+      "en",
+      "fr"
+    ],
+    "GF": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GE": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "FO": [
+      "da",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "FM": [
+      "en"
+    ],
+    "GA": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "FR": [
+      "fr",
+      "en"
+    ],
+    "GL": [
+      "da",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GI": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "NG": [
+      "en"
+    ],
+    "NF": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "NL": [
+      "nl",
+      "en"
+    ],
+    "NI": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "NP": [
+      "en"
+    ],
+    "NO": [
+      "no",
+      "en"
+    ],
+    "NU": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "NR": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "OM": [
+      "ar",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "NZ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GT": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "GW": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GY": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "HK": [
+      "en",
+      "zh"
+    ],
+    "GM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GN": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "GP": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "GR": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "HN": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "HR": [
+      "en"
+    ],
+    "SJ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SK": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SL": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SE": [
+      "sv",
+      "en"
+    ],
+    "SG": [
+      "en"
+    ],
+    "SH": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SI": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SN": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "SO": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "CC": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "DK": [
+      "da",
+      "en"
+    ],
+    "CF": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "DJ": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "BD": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "DE": [
+      "de",
+      "en"
+    ],
+    "BV": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "CZ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "CY": [
+      "en"
+    ],
+    "AS": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "AX": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "CV": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "CR": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "AF": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "AQ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "CO": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "CS": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "DO": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "CU": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "DM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MH": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MG": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "YE": [
+      "ar",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "ME": [
+      "en"
+    ],
+    "WS": [
+      "en"
+    ],
+    "MD": [
+      "en"
+    ],
+    "MQ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MN": [
+      "en"
+    ],
+    "ML": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "MK": [
+      "en"
+    ],
+    "VE": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "VC": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "MS": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "VA": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "UY": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "MR": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "WF": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "VU": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "VN": [
+      "en"
+    ],
+    "VG": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "ET": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "FI": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "ER": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "ES": [
+      "es",
+      "en"
+    ],
+    "EE": [
+      "en",
+      "ru",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "EG": [
+      "ar",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "DZ": [
+      "ar",
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "EC": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "FJ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "FK": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "PM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "AI": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "ZA": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "PN": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "AG": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "YT": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "PH": [
+      "en"
+    ],
+    "AE": [
+      "en",
+      "fr",
+      "es",
+      "zh",
+      "ar"
+    ],
+    "ZW": [
+      "en"
+    ],
+    "PL": [
+      "pl",
+      "en"
+    ],
+    "AD": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "ZM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "AO": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "PF": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "PG": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "AN": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "AM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "PA": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "AL": [
+      "en"
+    ],
+    "PE": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "AT": [
+      "de",
+      "en"
+    ],
+    "AR": [
+      "es",
+      "en"
+    ],
+    "PT": [
+      "pt",
+      "en"
+    ],
+    "PW": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "BM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "BJ": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "BO": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "BN": [
+      "en"
+    ],
+    "BS": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "BR": [
+      "pt",
+      "en"
+    ],
+    "BW": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "BT": [
+      "en"
+    ],
+    "BZ": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "BY": [
+      "en"
+    ],
+    "TD": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "VI": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "YU": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TC": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TH": [
+      "th",
+      "en"
+    ],
+    "UM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "UZ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TG": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "ST": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SR": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "ZR": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SZ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "SV": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "TM": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "TJ": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "C2": [
+      "zh",
+      "en"
+    ],
+    "CA": [
+      "en",
+      "fr"
+    ],
+    "CD": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "CG": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "CH": [
+      "de",
+      "fr",
+      "en"
+    ],
+    "CI": [
+      "fr",
+      "en"
+    ],
+    "CK": [
+      "en",
+      "fr",
+      "es",
+      "zh"
+    ],
+    "CL": [
+      "es",
+      "en",
+      "fr",
+      "zh"
+    ],
+    "CM": [
+      "fr",
+      "en"
+    ],
+    "CN": [
+      "zh"
+    ]
+  },
+  "regions": {
+    "EM": [],
+    "LATAM": [
+      "JM",
+      "PY",
+      "KY",
+      "AW",
+      "BB",
+      "KN",
+      "LC",
+      "TT",
+      "GD",
+      "NI",
+      "GT",
+      "GY",
+      "HN",
+      "CR",
+      "CO",
+      "DO",
+      "DM",
+      "VE",
+      "VC",
+      "MS",
+      "UY",
+      "VG",
+      "EC",
+      "FK",
+      "AI",
+      "AG",
+      "AN",
+      "PA",
+      "PE",
+      "BM",
+      "BO",
+      "BS",
+      "BZ",
+      "TC",
+      "SR",
+      "SV",
+      "CL"
+    ],
+    "EMEA": [
+      "MT",
+      "MU",
+      "MW",
+      "MZ",
+      "NA",
+      "NC",
+      "NE",
+      "JO",
+      "HU",
+      "IS",
+      "SA",
+      "RW",
+      "RS",
+      "RO",
+      "RE",
+      "QA",
+      "SC",
+      "AZ",
+      "BA",
+      "KZ",
+      "BF",
+      "BG",
+      "BH",
+      "KE",
+      "BI",
+      "KG",
+      "KW",
+      "KM",
+      "LI",
+      "UG",
+      "LU",
+      "GH",
+      "LV",
+      "LS",
+      "LT",
+      "MA",
+      "TN",
+      "MC",
+      "TZ",
+      "UA",
+      "GF",
+      "GE",
+      "FO",
+      "GA",
+      "GL",
+      "GI",
+      "NG",
+      "OM",
+      "GW",
+      "GM",
+      "GN",
+      "GP",
+      "GR",
+      "HR",
+      "SJ",
+      "SK",
+      "SL",
+      "SM",
+      "SH",
+      "SI",
+      "SN",
+      "SO",
+      "DJ",
+      "CZ",
+      "CY",
+      "CV",
+      "MG",
+      "YE",
+      "ME",
+      "MD",
+      "MQ",
+      "ML",
+      "MK",
+      "VA",
+      "MR",
+      "WF",
+      "ET",
+      "FI",
+      "ER",
+      "EE",
+      "EG",
+      "DZ",
+      "PM",
+      "ZA",
+      "YT",
+      "AE",
+      "ZW",
+      "AD",
+      "ZM",
+      "AO",
+      "PF",
+      "AM",
+      "AL",
+      "BJ",
+      "BW",
+      "BY",
+      "TD",
+      "TG",
+      "ST",
+      "SZ",
+      "TM",
+      "TJ",
+      "CD",
+      "CG",
+      "CI",
+      "CK",
+      "CM"
+    ],
+    "APAC": [
+      "MV",
+      "MY",
+      "ID",
+      "SB",
+      "KH",
+      "KI",
+      "KR",
+      "LK",
+      "LA",
+      "TO",
+      "TV",
+      "FM",
+      "NF",
+      "NP",
+      "NU",
+      "NR",
+      "NZ",
+      "MH",
+      "WS",
+      "MN",
+      "VU",
+      "VN",
+      "FJ",
+      "PN",
+      "PH",
+      "PG",
+      "PW",
+      "BN",
+      "BT"
+    ]
+  },
+  "urls": {
+    "capeUrl": "https://www.paypal.com/ppcreditapply/px/",
+    "capeReturnUrl": "https://www.paypal.com/webapps/helios",
+    "logUrl": "/webapps/helios/api/log",
+    "staticUrl": "/webapps/helios/static",
+    "fptiScriptUrl": "https://www.paypalobjects.com/pa/js/pa.js",
+    "fptiBeaconUrl": "https://t.paypal.com/webapps/tracking/ts",
+    "fraudnetUrl": {
+      "active": "https://www.paypalobjects.com/webstatic/r/fb/fb-all-prod.pp.min.js",
+      "passive": "https://c.paypal.com/webstatic/r/fb/fb-all-prod.pp2.min.js"
+    },
+    "fallbackUrl": {
+      "hermes": "https://www.paypal.com/checkoutnow/2?fallback=1",
+      "prox": "https://www.paypal.com/proxflow?fallback=1",
+      "signupWithXoon": "https://www.paypal.com/webapps/xoonboarding"
+    },
+    "baseUrl": "/webapps/helios"
+  }
+};

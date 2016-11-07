@@ -1,0 +1,7 @@
+//<!--
+// \include\lib\_global\_ui\_ex\writestylesheet.js 
+
+ebay.oDocument.oPage.writeStyleSheet=function(oConfig)
+{var path=oConfig.defaultStyleSheet;var c=ebay.oGlobals.oClient;if(c.bNav||c.bFirefox||c.bSafari)
+path=oConfig.sW3Stylesheet;ebay.oDocument.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+path+"\"/>");}
+// b=18099599 -->

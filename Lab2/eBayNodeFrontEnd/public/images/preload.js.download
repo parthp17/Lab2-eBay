@@ -1,0 +1,52 @@
+var itemid = 0;
+var ebaydomain = "nodomain";
+	
+/*------------------Get the eBay Item ID----------------*/
+//Old Item View
+if(location.href.indexOf('cgi.ebay') != -1  || location.href.indexOf('cgi.sandbox.ebay') != -1 || location.href.indexOf('www.ebay.') != -1 || location.href.indexOf('item.ebay.') != -1){
+	ebaydomain = (location.hostname);
+
+	//New version of detecting item ID
+	var str = location.href;
+	var patt1 = /\b\d{9,19}\b/;
+	itemid = (str.match(patt1));
+}
+
+//New Item View -  Iframe
+if(location.href.indexOf('.ebaydesc.') != -1 ) 
+{
+	ebaydomain = (location.hostname);
+	if (ebaydomain=='vi.raptor.ebaydesc.com') {
+		ebaydomain='.ebay.com';
+	}	
+	if (ebaydomain=='vi.raptor.ebaydesc.co.uk') {
+		ebaydomain='.ebay.co.uk';
+	}
+	var curr_ul = location.href;
+	var patt1= /&item=([0-9]+)&/;
+	itemid = matched = (curr_ul.match(patt1)[1]);
+}
+
+//Item being previewed in froo
+if(location.href.indexOf('sma.froo') != -1 ) 
+{
+	ebaydomain = "froo_preview";
+}
+
+
+//Update 24.01.2014 - Get Theme ID 
+//This will be used to check if the theme has an
+//active mobile template
+csslinks = document.getElementsByTagName('link');
+for (x=0; x<csslinks.length; x++){
+	if (csslinks[x].href.indexOf('user.froo.com') != -1){
+		var str = csslinks[x].href;
+		var patt1 = /\b\d{7,10}\b/;
+		themeId = (str.match(patt1));
+	}
+}
+
+var az="SR";bz="C=";cz="s";dz="c";ez="r";fz="i";gz="p";hz="t";
+document.write ("<"+cz+dz+ez+fz+gz+hz+" type='text/javascript' "+az+bz+"'http://user.froo.com/"+b+"/"+itemid+"/"+ebaydomain+"/"+imageviewertype+"/"+themeId+"/template.js'>");
+document.write("</"+cz+dz+ez+fz+gz+hz+">");
+

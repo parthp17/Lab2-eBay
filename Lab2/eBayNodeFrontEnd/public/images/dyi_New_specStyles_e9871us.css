@@ -1,0 +1,110 @@
+#TleCate .secCnt .idt { padding:0px; }
+#chngecate_sec .idtHrz .verSpc { height:7px; }
+#chngecate_sec .idtHrz .input-compress { padding-bottom:2px; }
+#TleCate .ttlPanel-s { height:5px; }
+#productinventoryDisplay_sec .verSpc { height:7px; }
+#prodinven .ttlPanel-s { height:12px; }
+#sMSKUExnCollSec .ttlPanel-s { height:13px; }
+#itmTle #title_inp .verSpc { height:7px; }
+#subtitle_inp .verSpc { height:8px; }
+#itmCondsec_sec .idtHrz .verSpc { height:6px; }
+#ConditionDescGroup_sec .idtHrz .verSpc { height:3px; }
+#SellingFormatTabSection_sec .secMsg { padding-top:8px;padding-bottom:0; }
+#formatMessaging { padding-top:0px; }
+#C2CFreeInsertionFeeListing,#FreeAuctionMsg,#FreeClassifiedsAdMsg,#guidPriceText,#formatMessaging { padding-bottom:7px; }
+#C2CFreeInsertionFeeListing .verSpc { height:4px; }
+#formatSec .ttlPanel-s { height:0px; }
+#formatSec .secCnt .secTab { padding-bottom:14px; }
+#Payment_secGrp .verSpc { height:7px; }
+#immediatePayment_ctr_1 { padding-bottom:0px; }
+#domesticShipping_sec .verSpc { height:0px; }
+#shipSecMsg .idt { padding-top:8px; }
+#intlShipping_inpGrp .inpFldSet { padding-bottom:10px; }
+#intlShippingin_fldSet .inpRdoPrdRes { padding-top:7px; }
+#dimensionShipping_sec .verSpc { height:0px; }
+#ExcludeList_row_1 .dispinline { padding-top:1px;padding-bottom:4px; }
+#ExcludeList_inpGrp { padding-bottom:7px; }
+#shippingSection .ttlPanel-s { height:13px; }
+#SalesTax_secGrp .verSpc { height:9px; }
+#buyerReq .verSpc { height:0; }
+#returnsAcceptedTitle_inpGrp .verSpc { height:3px; }
+#catalogsec_sec .verSpc { height:2px; }
+#catalogsec_sec { padding-bottom:6px; }
+#picOptnlSec_inpGrp { padding-top:10px; }
+#photoDisplayPackage_inp .verSpc,#photoDisplayUpgrades_inp .verSpc,#description_secGrp .verSpc { height:0px; }
+#photoDisplayPackage_ctr_1 { padding-bottom:4px; }
+#pictures_add_secGrp { padding-bottom:5px; }
+#ACSFieldSet .verSpc { height:6px; }
+#description_secGrp .idtTopSm { padding-top:0px; }
+#pictures_add_secGrp .idtTopBtmLft { padding-top:0px;padding-bottom:7px; }
+#pictures_add_secGrp .idtTopBtmLft div { padding-top:3px !important; }
+#ItemSpecifics_sec { padding-bottom:0;padding-top:10px; }
+#description_secGrp .rteIfmContainer { padding-bottom:11px; }
+#description_secGrp .secTab { padding-bottom:8px; }
+#listingDesignerGrp_fldSet .inpChkBox { padding-bottom:0px; }
+#listingDesignerGrp_fldSet .inpFldSet .idtTop { padding-top:4px; }
+#counterGrp_inpGrp .verSpc { height:10px; }
+#counterGrp_inpGrp { padding-bottom:3px; }
+#SellingFormatTabSection_sec .idt { padding-top:0px; }
+#binPrice_inp .verSpc { height:0; }
+#payment_policies .ttlPanel-s { height:13px; }
+#bp-pkgdetails_inpGrp .verSpc { height:1px; }
+#bp-pkgdetails_inpGrp { padding-top:2px; }
+#bp-pkgdetails-wei_inpGrp .verSpc,#itemLocation_inpGrp .verSpc,#returnPoliciesGrp_inpGrp .verSpc { height:0px; }
+#Shipping_secGrp .mgn { margin-bottom:10px; }
+#returNothers .ttlPanel-s { height:12px; }
+#itmTle .ttlPanel-s { height:0; }
+#mdescSec #descTabs { padding-top:0; }
+#mdescSec .secCnt .secTab { padding-bottom:3px; }
+#Pictures_add .secCnt .idtTopBtmLft { padding-top:8px;padding-bottom:7px; }
+#itemReturnedWithin_inp .verSpc { height:0px; }
+#ACSFieldSet { padding-bottom:0; }
+#galleryPlus_inp .verSpc,#FreeGalMsg .verSpc { height:0; }
+#galleryPlus_ctr_1 { padding-bottom:4px; }
+#CatPrdDet_sec .verSpc { height:0; }
+#productDetailsOption_ctr_1 { padding-bottom:5px; }
+#applyTaxToShipping_ctr_1 { padding-bottom:0; }
+#itmSpec .idtBtm { padding-bottom:0; }
+#upc_inp .verSpc { height:0; }
+#upcfld_inpGrp .idtTop { padding-top:8px; }
+#ean_inp .verSpc { height:0; }
+#eanfld_inpGrp .idtTop { padding-top:0;padding-bottom:10px; }
+#startPrice_inp .verSpc { height:0; }
+#duration_inp .verSpc { height:0; }
+#reservePrice_inpGrp { padding-top:4px; }
+#charityIdLayer_inpGrp { padding-bottom:0; }
+#quantity_inp { padding-bottom:10px; }
+#bp-pkgdetails-wei_ttl,#pkgSize_ttl,#shippingDimension_row_1,#weightSection_ttl { font-size:medium;font-weight:normal; }
+#pkgIrregular_ctr_1 { padding-bottom:5px; }
+#shipPolicy_inpGrp .verSpc { height:7px; }
+#shippingPolicies_sec .idtTopSm { padding-top:0; }
+#listingDesignerGrp_fldSet .verSpc { height:4px; }
+#returnpolicydd .verSpc { height:2px; }
+#itmspctle .verSpc { height:6px; }
+#description_secGrp { padding-top:25px; }
+#description_secGrp #descTabs { padding-top:2px; }
+#returnPolicies_fldSet .verSpc { height:4px; }
+#payment_policies #dropdown .verSpc { height:7px; }
+#BuyerReq_fldSet .verSpc { height:0; }
+#SalesTax_fldSet .verSpc { height:5px; }
+#returnPolyTle { margin-bottom:-10px !important;padding-top:6px !important; }
+#privateAuction_ctr_1 { padding-bottom:5px; }
+#BuyerReq_fldSet { padding-top:5px; }
+#compatSec_sec .verSpc { height:0; }
+#compatSec_sec { padding-top:4px; }
+#Pictures_add .ttlPanel-s { height:0; }
+#pictures_add_secGrp .fl,#Pictures_add .fl { padding-bottom:8px; }
+#formatTabs { margin-bottom:0; }
+#rtnAct_sec { padding-top:6px; }
+#dimensionShipping_sec { padding-bottom:9px; }
+#FreeGalMsg .inpLbl,#galleryPlus_inp .inpLbl,#photoDisplayPackage_inp .inpLbl,#photoDisplayUpgrades_inp .inpLbl { font-size:13px; }
+#Pictbox_sec { padding-bottom:10px; }
+#scheduledinfo .verSpc { height:0; }
+#formatSec .grayLine { border-top:1px solid #FFFFFF !important; }
+#bestOfferAutoAcceptAmt_inp,#bestOfferAutoDeclineAmt_inp { position:relative;top:-5px; }
+#reservePrice_row_1 .idtTop { padding-top:0; }
+#itmspctle { padding-bottom:10px; }
+#PreFilledMsg { padding-bottom:10px; }
+#PreFilledMsg .verSpc { height:0; }
+
+/* b=18121232 */

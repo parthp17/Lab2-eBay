@@ -1,0 +1,28 @@
+{
+  "name": "eBaySimpleMarketPlace",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "test": "mocha test"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "ejs": "*",
+    "express": "3.2.6",
+    "express-session": "^1.14.1",
+    "mocha": "^3.1.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.1.2"
+  },
+  "description": "Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)\r  ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
+}

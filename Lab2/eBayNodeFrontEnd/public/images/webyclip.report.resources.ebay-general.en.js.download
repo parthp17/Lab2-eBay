@@ -1,0 +1,78 @@
+var wcReportRes = {
+    tellUsMore : "Tell us why you want to report this video:",
+    commentLabel: "Comment:",
+    send : "Send",
+    cancel : "Cancel",
+    structure: [
+        {
+            id: "opt2",
+            key: "does_not_match_product_or_inaccurate_or_misleading_or_poor_quality",
+            title: "Video doesn\'t match product/inaccurate/misleading/poor quality",
+            username: true,
+            comment: true
+        },
+        {
+            id: "opt3",
+            key: "infringes_my_rights",
+            title : "Video infringes my rights:",
+            options: [
+                {
+                    id: "opt3_1",
+                    key: "trademark_infringement",
+                    title : "Trademark infringement",
+                    username: true,
+                    comment: true
+                },
+                {
+                    id: "opt3_2",
+                    key: "copyright_infringement",
+                    title : "Copyright infringement:",
+                    options: [
+                        {
+                            id: "opt3_2_1",
+                            key: "related_to_music",
+                            title : "Related to music",
+                            username: true,
+                            comment: true
+                        },
+                        {
+                            id: "opt3_2_2",
+                            key: "related_to_visual_content",
+                            title : "Related to visual content",
+                            username: true,
+                            comment: true
+                        },
+                        {
+                            id: "opt3_2_3",
+                            key: "related_to_both_music_and_visual_content",
+                            title : "Related to both music/visual content",
+                            username: true,
+                            comment: true
+                        }
+                    ]
+                },
+                {
+                    id: "opt3_3",
+                    key: "other_ip_rights",
+                    title : "Other IP rights",
+                    username: true,
+                    comment: true
+                }
+            ]
+        },
+        {
+            id: "opt4",
+            key: "offensive_or_inappropriate",
+            title : "Video is offensive or inappropriate",
+            username: true,
+            comment: true
+        },
+        {
+            id: "opt5",
+            key: "other",
+            title: "Other",
+            username: true,
+            comment: true
+        }
+    ]
+};

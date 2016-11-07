@@ -1,0 +1,32 @@
+
+<!-- saved from url=(0049)https://www.paypal.com/webapps/helios/cookiecheck -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script>
+    (function() {
+
+        function cookiesEnabled() {
+            var cookiesEnabled;
+            document.cookie = '_cookiecheck=1';
+            cookiesEnabled = Boolean(document.cookie.indexOf('_cookiecheck') > -1);
+            document.cookie = '_cookiecheck; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            document.cookie = '_cookiecheck=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            return cookiesEnabled;
+        }
+
+        function postMessage(message) {
+            try {
+                window.parent.postMessage(JSON.stringify(message), '*');
+            } catch(err) {
+                if (console.error) {
+                    console.error(err.stack || err.toString());
+                }
+            }
+        }
+
+        postMessage({
+            operation: 'cookie_check',
+            enabled: cookiesEnabled()
+        });
+
+    })();
+</script>
+</head><body></body></html>

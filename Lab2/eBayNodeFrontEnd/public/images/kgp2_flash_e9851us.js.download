@@ -1,0 +1,415 @@
+//<!--
+// \include\lib\_global\_ui\_base\anchor.js 
+
+function EbayHTMLAnchor(pParent,pName,pDisabled,pCfg)
+{if(!this.objType)
+this.objType="EbayHTMLAnchor";this.base=EbayHTML;this.base(pParent,pName,pName,pDisabled,pCfg);this.getElem=ebHTMLAnchorGetElem;this.enableBase=this.enable;this.enable=ebHTMLAnchorEnable;this.subscribeEvents("onclick");}
+function ebHTMLAnchorGetElem(pName)
+{var d=this.oDocument.doc,l=null,len=null;l=d.links[pName];if(l)return l;if(d.getElementById)
+l=d.getElementById(pName);if(l)return l;if(d.all)
+l=d.all[pName];if(l)return l;if(d.layers)
+{var lyrs=d.layers;len=lyrs.length;for(var i=0;i<len;i++)
+{l=this.getElem(lyrs[i].document,pName);if(l)
+return l;}}
+len=d.links.length;for(var j=0;j<len;j++)
+{l=d.links[j];if(typeof(l.name)=="undefined")
+{if(l.onclick)
+{var oc=l.onclick.toString();if(oc.indexOf("{#"+pName+"#}")!=-1)
+return l;}}
+else
+{if(l.name==pName)
+return l;}
+l=null;}
+return l;}
+function ebHTMLAnchorEnable(pEnable)
+{var cur=(pEnable)?"hand":"default";var el=this.eElem;if(el&&el.style)
+{el.style.cursor=cur;el.style.color=pEnable?"":"gray";}
+this.enableBase(pEnable);}
+function setEbayLink(pS)
+{return true;}
+
+// \include\lib\_global\_v2\utils\_base\json.js 
+
+function EbayJSON()
+{this.toJSON=function(pObj)
+{var str="";if(pObj.constructor==[].constructor)
+str+=eval("this.arrayToJSON( pObj )");else
+str+=eval("this."+typeof(pObj)+"ToJSON( pObj )");return str;}
+this.objectToJSON=function(pObj)
+{var a=['{'],b,i,v;function p(s){if(b){a.push(',');}
+a.push(ebay.oUtils.oJSON.toJSON(i),':',s);b=true;}
+for(i in pObj){if(pObj.hasOwnProperty(i)){v=pObj[i];switch(typeof v){case'undefined':case'function':case'unknown':break;case'object':if(v){p(this.toJSON(v));}else{p("null");}
+break;default:p(this.toJSON(v));}}}
+a.push('}');return a.join('');}
+this.stringToJSON=function(pObj)
+{var m={'\b':'\\b','\t':'\\t','\n':'\\n','\f':'\\f','\r':'\\r','"':'\\"','\\':'\\\\'};var r=new RegExp('["\\\\\\x00-\\x1f]');var t=new RegExp('([\\x00-\\x1f\\"])','g');if(r.test(pObj))
+{return'"'+pObj.replace(t,function(a,b)
+{var c=m[b];if(c){return c;}
+c=b.charCodeAt();return'\\u00'+
+Math.floor(c/16).toString(16)+
+(c%16).toString(16);})+'"';}
+return'"'+pObj+'"';}
+this.numberToJSON=function(pObj)
+{return isFinite(pObj)?String(pObj):"null";}
+this.arrayToJSON=function(pObj)
+{var a=['['],b,i,l=pObj.length,v;function p(s){if(b){a.push(',');}
+a.push(s);b=true;}
+for(i=0;i<l;i+=1){v=pObj[i];switch(typeof v){case'undefined':case'function':case'unknown':break;case'object':if(v){p(this.toJSON(v));}else{p("null");}
+break;default:p(this.toJSON(v));}}
+a.push(']');return a.join('');}
+this.fromJSON=function(pStr,filter)
+{try
+{var t=new RegExp('^("(\\\\.|[^"\\\\\\n\\r])*?"|[,:{}\\[\\]0-9.\\-+Eaeflnr-u \\n\\r\\t])+?$');;if(t.test(pStr))
+{var j=eval('('+pStr+')');if(typeof filter==='function')
+{function walk(k,v)
+{if(v&&typeof v==='object')
+{for(var i in v)
+{if(v.hasOwnProperty(i))
+{v[i]=walk(i,v[i]);}}}
+return filter(k,v);}
+return walk('',j);}
+return j;}}
+catch(e)
+{throw new SyntaxError("parseJSON");}
+return[];}}
+ebay.oUtils.oJSON=new EbayJSON();
+
+// \include\lib\_global\_ui\_base\layer.js 
+
+function EbayHTMLLayer(pParent,pName,pDisabled,pCfg)
+{if(!this.objType)
+this.objType="EbayHTMLLayer";this.base=EbayHTML;this.base(pParent,pName,pName,pDisabled,pCfg);this.aBindEvents=new Array;this.getElem=ebHTMLLayerGetElem;this.getValue=ebHTMLLayerGetValue;this.setValue=ebHTMLLayerSetValue;}
+function ebHTMLLayerGetElem(pName)
+{var s=pName,d=this.oDocument.doc;if(d.getElementById)
+return d.getElementById(s);else if(d.all)
+return d.all(s);this.throwWarning("Not supported","getElem");}
+function ebHTMLLayerGetValue(pIsText)
+{if(this.eElem)
+{if(pIsText)
+{if(this.oDocument.oGlobals.oClient.bFirefox)
+return this.eElem.textContent;else
+return this.eElem.innerText;}
+else
+return this.eElem.innerHTML;}
+else
+return"";}
+function ebHTMLLayerSetValue(pVal,pIsText)
+{if(this.eElem)
+{if(pIsText)
+{if(this.oDocument.oGlobals.oClient.bFirefox)
+this.eElem.textContent=pVal;else
+this.eElem.innerText=pVal;}
+else
+this.eElem.innerHTML=pVal;}}
+
+// \include\lib\_global\_v2\utils\_base\html_source_node.js 
+
+function EbayHtmlSourceNode(pTagType)
+{this._sTagType=pTagType;this._aChildren=[];this.createNode=function(pTagType)
+{var child=new EbayHtmlSourceNode(pTagType);this._aChildren.push(child);return child;}
+this.getHTML=function()
+{if(this._sTagType=="#text")
+{return this.value;}
+else
+{var html="<"+this._sTagType;;for(var i in this)
+{if(i!="_sTagType"&&i!="_aChildren"&&i!="createNode"&&i!="getHTML")
+html+=" "+i+"=\""+this[i]+"\"";}
+html+=">";var len=this._aChildren.length;for(var i=0;i<len;i++)
+{html+=this._aChildren[i].getHTML();}
+html+="</"+this._sTagType+">";return html;}}}
+
+// \include\lib\_global\_v2\utils\_base\flash.js 
+
+function EbayFlashUtil(pParent,pName)
+{if(!this.objType)
+this.objType="EbayFlashUtil";this.base=EbayBaseControl;this.base(pParent,pName);this.iSessionId=Math.ceil(Math.random()*1000000);this.getObjectRef=function(psName)
+{oCl=this.oGlobals.oClient;if(oCl.bIE&&oCl.iVer<11)
+return window[psName];else
+return window.document[psName];}
+this.getControlVersion=function()
+{var version,axo,e;try
+{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");version=axo.GetVariable("$version");}
+catch(e)
+{}
+if(!version)
+{try
+{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");version="WIN 6,0,21,0";axo.AllowScriptAccess="always";version=axo.GetVariable("$version");}
+catch(e)
+{}}
+if(!version)
+{try
+{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");version=axo.GetVariable("$version");}
+catch(e)
+{}}
+if(!version)
+{try
+{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");version="WIN 3,0,18,0";}
+catch(e)
+{}}
+if(!version)
+{try
+{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash");version="WIN 2,0,0,11";}
+catch(e)
+{version=-1;}}
+return version;}
+this.getPlayerVersion=function()
+{var flashVer=-1,oCL=this.oGlobals.oClient;if(navigator.plugins!=null&&navigator.plugins.length>0)
+{if(navigator.plugins["Shockwave Flash 2.0"]||navigator.plugins["Shockwave Flash"])
+{var swVer2=navigator.plugins["Shockwave Flash 2.0"]?" 2.0":"";var flashDescription=navigator.plugins["Shockwave Flash"+swVer2].description;var descArray=flashDescription.split(" ");var tempArrayMajor=descArray[2].split(".");var versionMajor=tempArrayMajor[0];var versionMinor=tempArrayMajor[1];if(descArray[3]!="")
+tempArrayMinor=descArray[3].split("r");else
+tempArrayMinor=descArray[4].split("r");var versionRevision=tempArrayMinor[1]>0?tempArrayMinor[1]:0;var flashVer=versionMajor+"."+versionMinor+"."+versionRevision;}}
+else if((oCL.bIE&&oCL.iVer<11)&&oCL.bWin&&!oCL.bOpera)
+flashVer=this.getControlVersion();return flashVer;}
+this.detectFlashPlayer=function(pMajorVer,pMinorVer,pRev)
+{var versionStr=this.getPlayerVersion(),oCL=this.oGlobals.oClient,aVer=[];if(versionStr==-1)
+return false;else if(versionStr!=0)
+{if((oCL.bIE&&oCL.iVer<11)&&oCL.bWin&&!oCL.bOpera)
+{var tempArray=versionStr.split(" ");var tempString=tempArray[1];aVer=tempString.split(",");}
+else
+aVer=versionStr.split(".");var vMaj=aVer[0],vMin=aVer[1],vRev=aVer[2];if(vMaj>parseFloat(pMajorVer))
+return true;else if(vMaj==parseFloat(pMajorVer))
+{if(vMin>parseFloat(pMinorVer))
+return true;else if(vMin==parseFloat(pMinorVer))
+{if(vRev>=parseFloat(pRev))
+return true;}}
+return false;}}
+this.getVersion=function()
+{var fv=0,cl=this.oGlobals.oClient;if((cl.bIE&&cl.iVer<11)&&cl.bWin&&!cl.bOpera)
+{for(var i=10;i>=3;i--)
+{if(cl.activeXLibLoaded("ShockwaveFlash.ShockwaveFlash."+i))
+{fv=i;break;}}}
+else
+{if(navigator.plugins["Shockwave Flash"])
+{var pd=navigator.plugins["Shockwave Flash"].description;var aDesc=pd.split(" ");if(aDesc.length&&aDesc[2])
+fv=aDesc[2].split('.')[0];}
+if(cl.bWebTV)fv=3;}
+return fv;}
+this.js2as=function(pConfig)
+{var c=pConfig;var args=ebay.oUtils.oJSON.toJSON(c.aArgs);var o={sName:"gateway",aParameters:{Mod:c.sName,Func:c.sFunction,Args:args},sOutputDiv:"EbayFlashUtilOutputDiv"};this.writeFlash(o);}
+this.initProject=function(pName,pCfg)
+{pCfg.sName=pName;this.writeFlash(pCfg);}
+this.writeFlash=function(pConfig)
+{var c=pConfig,oD=this.oDocument;var writeObject=true;var version=this.getVersion();var install=c.bForceInstallFlash||false;if(version>=8||install)
+{var html=this.getHTML(c);if(c.sOutputDiv)
+{var d=new EbayHTMLLayer(this,c.sOutputDiv);d.bind();if(d.eElem)
+{d.eElem.innerHTML=html;}}
+else
+{this.parent.write(html);}
+oD.win[c.sName]=oD.getUIElem(c.sName);}}
+this.getHTML=function(pConfig)
+{var c=pConfig;var sub_domain=this.parent.oGlobals.oEnvironment.sIncludeHost;var bUseHttps=false,oCL=this.oGlobals.oClient,bObj=(oCL.bIE&&oCL.iVer<11)&&oCL.bWin&&!oCL.bOpera;if(sub_domain.indexOf("https://")!=-1)
+{bUseHttps=true;}
+if(typeof(c.bUseSecureIncludePool)!="undefined"&&c.bUseSecureIncludePool==true)
+{sub_domain=sub_domain.replace("http://include","http://secureinclude");}
+if(sub_domain.indexOf("aw/pics/")==-1)
+sub_domain+="aw/pics/";var swfpath=c.sSwfPath||sub_domain+"flash/global/features/"+c.sName+"/dist/"+c.sName+".swf";var obj=new EbayHtmlSourceNode("object");obj.id=c.sId||c.sName||"";if(!bObj)
+{var e=obj.createNode("embed");e.name=c.sId||c.sName||"";e.type="application/x-shockwave-flash";e.pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash";}
+obj.width=c.iWidth||"0";obj.height=c.iHeight||"0";if(e)
+{e.width=c.iWidth||"0";e.height=c.iHeight||"0";}
+if(bUseHttps)
+obj.codebase=c.sCodebase||"https://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0";else
+obj.codebase=c.sCodebase||"http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0";obj.classid=c.sClassId||"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000";var p1=obj.createNode("param");p1.name="movie";p1.value=swfpath;if(e)
+e.src=swfpath;var p2=obj.createNode("param");p2.name="wmode";p2.value=c.bWindowMode?"transparent":"";if(e)
+e.wmode=c.bWindowMode?"transparent":"";var p3=obj.createNode("param");p3.name="salign";p3.value=c.sSAlign||"lt";if(e)
+e.salign=c.sSAlign||"lt"
+var p4=obj.createNode("param");p4.name="scale";p4.value=c.sScale||"noscale";if(e)
+e.scale=c.sScale||"noscale";var p5=obj.createNode("param");p5.name="menu";p5.value=c.bMenu?"true":"false";if(e)
+e.menu=c.bMenu?"true":"false";if(!c.aParameters)
+c.aParameters=new Object();c.aParameters.Host="http://"+this.parent.oGlobals.oEnvironment.sThisPageHost+"/";c.aParameters.SessionId=this.iSessionId;c.aParameters.FrameId=window.name!=""?window.name:"_self";var flashvars="",bFVPrefix=typeof(c.bUseFVPrefix)!='undefined'?c.bUseFVPrefix:true;for(var node in c.aParameters)
+{flashvars+=(bFVPrefix?"fv":"")+node+"="+c.aParameters[node]+"&";}
+var p6=obj.createNode("param");p6.name="flashvars";p6.value=flashvars;if(e)
+e.flashvars=flashvars;var p7=obj.createNode("param");p7.name="allowScriptAccess";p7.value="always";if(e)
+e.allowScriptAccess="always";return obj.getHTML();}
+this.init=function()
+{this.parent.write("<div id='EbayFlashUtilOutputDiv'></div>");}
+this.init();}
+ebay.oUtils.oFlash=new EbayFlashUtil(ebay.oDocument,"FlashUtil");function EbayFlashProjects(pParent,pName)
+{if(!this.objType)
+this.objType="EbayFlashProjects";this.base=EbayFlashUtil;this.base(pParent,pName);}
+new EbayFlashProjects(ebay.oDocument,"FlashProjects");
+
+// \include\lib\_global\_ui\_base\text.js 
+
+function EbayHTMLText(pParent,pName,pDisabled,pCfg,bHidden)
+{if(!this.objType)
+this.objType="EbayHTMLText";this.base=EbayHTMLFormElem;this.base(pParent,pName,pDisabled,pCfg);this.value=ebHTMLTextValue;this.getValue=ebHTMLTextGetValue;this.setValue=ebHTMLTextSetValue;this.select=ebHTMLTextSelect;this.enableBase=this.enable;this.enable=ebHTMLTextEnable;if(bHidden!=true)
+this.subscribeEvents("onchange","onblur","onfocus","onkeydown","onkeyup");}
+function ebHTMLTextValue(pVal)
+{var e=this.eElem;if(e)
+{if(typeof(pVal)=="undefined")
+return e.value;else
+e.value=pVal;}}
+function ebHTMLTextGetValue()
+{return this.value();}
+function ebHTMLTextSetValue(pVal)
+{return this.value(pVal);}
+function ebHTMLTextSelect()
+{var e=this.eElem;if(e)
+e.select();}
+function ebHTMLTextEnable(pEnable)
+{this.enableBase(pEnable);this.setStyle('backgroundColor',!pEnable?'#ccc':'#fff');}
+
+// \include\lib\_global\_ui\_base\form.js 
+
+function EbayHTMLForm(pParent,pName,pCfg)
+{if(!this.objType)
+this.objType="EbayHTMLForm";this.base=EbayHTML;this.base(pParent,pName,pName,false,pCfg);this.getElem=function(){return this.getDocElem(arguments[0],'forms');};this.enable=function(){};this.getElementValue=ebHTMLFormGetElementValue;this.setElementValue=ebHTMLFormSetElementValue;this.getElements=ebHTMLFormGetElements;this.getElement=ebHTMLFormGetElement;this.setAction=ebHTMLFormSetAction;this.getAction=ebHTMLFormGetAction;this.setTarget=ebHTMLFormSetTarget;this.getTarget=ebHTMLFormGetTarget;this.submit=ebHTMLFormSubmit;this.clear=ebHTMLFormClear;this.subscribeEvents("onsubmit");this.onBeforeSubmit=null;this.onAfterSubmit=null;}
+function ebHTMLFormGetElements()
+{var e=this.eElem;return e?e.elements:new Array;}
+function ebHTMLFormGetElement(pName)
+{var elems=this.getElements();return elems[pName]?elems[pName]:null;}
+function ebHTMLFormGetElementValue(pName)
+{var elems=this.getElements();if(elems[pName]&&elems[pName].value)
+return elems[pName].value;return"";}
+function ebHTMLFormSetElementValue(pName,pValue)
+{var elems=this.getElements(),elem=elems[pName];if(elem)
+{if(elem.length)
+{for(var i=0,len=elem.length;i<len;i++)
+elem[i].value=pValue;}
+else
+elem.value=pValue;}}
+function ebHTMLFormSetAction(pAction)
+{var e=this.eElem;if(e)
+e.action=pAction;}
+function ebHTMLFormGetAction()
+{var e=this.eElem;if(e)
+return e.action;}
+function ebHTMLFormSetTarget(pTarget)
+{var e=this.eElem;if(e)
+e.target=pTarget;}
+function ebHTMLFormGetTarget()
+{var e=this.eElem;if(e)
+return e.target;}
+function ebHTMLFormSubmit()
+{if(this.onBeforeSubmit)
+this.onBeforeSubmit();var e=this.eElem;if(e)
+{e.submit();if(this.onAfterSubmit)
+this.onAfterSubmit();}
+else
+this.throwError("Element '"+this.sElemName+"' does not exist on the page","submit");}
+function ebHTMLFormClear()
+{var elems=this.getElements(),len=elems.length;for(i=0;i<len;i++)
+{var elem=elems[i];var type=elem.type;switch(type)
+{case"text":case"textarea":elem.value="";break;case"checkbox":elem.checked=false;break;case"select-one":elem.selectedIndex=0;}}}
+
+// \include\lib\_global\features\known_good\known_good_helper.js 
+
+function EbayKgClientInfoHelper(pParent,pName)
+{if(!this.objType)
+this.objType="EbayKnownGoodHelper";this.base=EbayBaseControl;this.base(pParent,pName);this.isAJAXSupported=function(){var r;try{r=new XMLHttpRequest();}catch(e){try{r=new ActiveXObject("Msxml2.XMLHTTP");}catch(e){try{r=new ActiveXObject("Microsoft.XMLHTTP");}catch(e){return"na";}}}
+return(r)?"yes":"no";}
+this.getCPU=function()
+{if(typeof(navigator.cpuClass)!="undefined"&&navigator.cpuClass!=""){var cpu=navigator.cpuClass;var ua=navigator.userAgent;if(ua.indexOf("WOW")>0){cpu="wow64";}
+return cpu;}else
+return"na";}
+this.isCssSupported=function()
+{var _d=document.createElement("div");_d.id="css_test";_d.style.color="red";document.body.appendChild(_d);var xx=document.getElementById("css_test");if(xx.currentStyle){var res=xx.currentStyle["color"]!=_d.style.color?"no":"yes";document.body.removeChild(_d);return res;}
+else
+return("na");}
+this.isDotNetSupported=function()
+{var idotnet=false
+if(navigator.plugins["Windows Presentation Foundation"]){idotnet=true;}
+return(idotnet)?"yes":"no";}
+this.getGeoLocation=function(){return("geolocation"in navigator)?"yes":"no";}
+this.isGearsInstalled=function(){return(window.google&&google.gears)?"yes":"no";}
+this.hasGoogleChrome=function(){var i_chrome;i_chrome=navigator.userAgent.toLowerCase().indexOf("chrome")>-1;return(i_chrome)?"yes":"no";}
+this.isOnline=function(){if(typeof(navigator.onLine)!="undefined"){return(navigator.onLine)?"online":"offline";}else
+return"na";}
+this.hasOpenOffice=function(){var i_ooo;if(navigator.plugins){if(navigator.plugins["OpenOffice.org Plug-in"]){i_ooo=true;}
+return(i_ooo)?"yes":"no";}
+else
+return"na";}
+this.getOperatingSystem=function(){if(typeof(navigator.oscpu)=="string"){return(navigator.oscpu);}
+else if(typeof(navigator.platform)!="undefined"){return(navigator.platform);}
+else{return"na";}}
+this.isWebKitSupported=function(){var ua=navigator.userAgent;webkit=RegExp("AppleWebKit/").test(ua);return webkit?"yes":"no";}
+this.hasEvilPlugin=function(){return(navigator.plugins["Evil Plugin"])?"yes":"no";}}
+
+// \include\lib\_global\features\known_good\known_good.js 
+
+ebay.oDocument.oPage.flashAlert=function(alertMessage)
+{}
+ebay.oDocument.oPage.setKgValues=function(HttpTagValues)
+{this.sKgValues=HttpTagValues;this.setHttpKgValue=function()
+{var c=this.parent.getConfig("kg");if(typeof(c.sHttpFormField)!="undefined")
+{var httpField=new EbayHTMLText(this,c.sHttpFormField);httpField.bind();httpField.setValue(this.sKgValues);}}
+this._registerListener(this.oDocument._getEvent("load"),this.EVENT_AFTER,"setHttpKgValue");}
+ebay.oDocument.oPage.flashInit=function()
+{var c=this.parent.getConfig("kg");this.oFlash=this.oUtils.oFlash.getObjectRef("krb");var currentToken=this.oFlash.getTokenValue();if(typeof(currentToken)!="undefined"&&currentToken!=null)
+{var tokenField=new EbayHTMLText(this,c.sFormField);tokenField.bind();tokenField.setValue(currentToken);}
+if(typeof(c.sStatusField)!="undefined")
+{var status=new EbayHTMLText(this,c.sStatusField);status.bind();status.setValue(DetectFlashVer(9,0,28)+"");}
+if(typeof(c.sNumberField)!="undefined")
+{var status=new EbayHTMLText(this,c.sNumberField);status.bind();status.setValue(GetSwfVer()+"");}}
+ebay.oDocument.oPage.kginit=function()
+{this.writeFlash=function()
+{var c=this.parent.getConfig("kg");if(c.sKnownGoodEnabled==true||c.sKnownGoodEnabled=="true"){var f=ebay.oUtils.oFlash;f.writeFlash({sName:"krb",sOutputDiv:this.parent.getConfig("kg").sDiv,bUseSecureIncludePool:true});}}
+this._registerListener(this.oDocument._getEvent("load"),this.EVENT_AFTER,"writeFlash");var oEnv=ebay.oDocument.oGlobals.oEnvironment;if(oEnv.sCountry!="us"){if((typeof(document.SignInForm)!="undefined")&&(typeof(document.SignInForm.kgct)!="undefined"))
+{document.write("<scr"+"ipt src='"+oEnv.sProtocol+"//signin."+oEnv.sQAMachine+(oEnv.sEnvironment=="prod"?"":oEnv.sQADomain)+"ebay.com/ws/eBayISAPI.dll?SignInAuthRedirect&guid=true&ct="+document.SignInForm.kgct.value+"'></scr"+"ipt>");}}}
+ebay.oDocument.oPage.kginit();var isIE=(navigator.appVersion.indexOf("MSIE")!=-1)?true:false;var isWin=(navigator.appVersion.toLowerCase().indexOf("win")!=-1)?true:false;var isOpera=(navigator.userAgent.indexOf("Opera")!=-1)?true:false;function ControlVersion()
+{var version;var axo;var e;try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");version=axo.GetVariable("$version");}catch(e){}
+if(!version)
+{try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.6");version="WIN 6,0,21,0";axo.AllowScriptAccess="always";version=axo.GetVariable("$version");}catch(e){}}
+if(!version)
+{try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");version=axo.GetVariable("$version");}catch(e){}}
+if(!version)
+{try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash.3");version="WIN 3,0,18,0";}catch(e){}}
+if(!version)
+{try{axo=new ActiveXObject("ShockwaveFlash.ShockwaveFlash");version="WIN 2,0,0,11";}catch(e){version=-1;}}
+return version;}
+function GetSwfVer(){var flashVer=-1;if(navigator.plugins!=null&&navigator.plugins.length>0){if(navigator.plugins["Shockwave Flash 2.0"]||navigator.plugins["Shockwave Flash"]){var swVer2=navigator.plugins["Shockwave Flash 2.0"]?" 2.0":"";var flashDescription=navigator.plugins["Shockwave Flash"+swVer2].description;var descArray=flashDescription.split(" ");var tempArrayMajor=descArray[2].split(".");var versionMajor=tempArrayMajor[0];var versionMinor=tempArrayMajor[1];if(descArray[3]!=""){tempArrayMinor=descArray[3].split("r");}else{tempArrayMinor=descArray[4].split("r");}
+var versionRevision=tempArrayMinor[1]>0?tempArrayMinor[1]:0;var flashVer=versionMajor+"."+versionMinor+"."+versionRevision;}}
+else if(navigator.userAgent.toLowerCase().indexOf("webtv/2.6")!=-1)flashVer=4;else if(navigator.userAgent.toLowerCase().indexOf("webtv/2.5")!=-1)flashVer=3;else if(navigator.userAgent.toLowerCase().indexOf("webtv")!=-1)flashVer=2;else if(isIE&&isWin&&!isOpera){flashVer=ControlVersion();}
+return flashVer;}
+function DetectFlashVer(reqMajorVer,reqMinorVer,reqRevision)
+{versionStr=GetSwfVer();if(versionStr==-1){return false;}else if(versionStr!=0){if(isIE&&isWin&&!isOpera){tempArray=versionStr.split(" ");tempString=tempArray[1];versionArray=tempString.split(",");}else{versionArray=versionStr.split(".");}
+var versionMajor=versionArray[0];var versionMinor=versionArray[1];var versionRevision=versionArray[2];if(versionMajor>parseFloat(reqMajorVer)){return true;}else if(versionMajor==parseFloat(reqMajorVer)){if(versionMinor>parseFloat(reqMinorVer))
+return true;else if(versionMinor==parseFloat(reqMinorVer)){if(versionRevision>=parseFloat(reqRevision))
+return true;}}
+return false;}}
+
+// \include\lib\_global\features\known_good\known_good_clientinfo.js 
+
+function kgClientInfoWriter(pParent,pName,pCfg)
+{if(!this.objType)
+this.objType="kgClientInfoCfg";this.base=EbayBaseControl;this.base(pParent,pName);var cfg=pCfg;var hiddenBoxId=cfg.sHiddenBoxId;this.hiddenBox=new EbayHTMLText(this,hiddenBoxId);this.hiddenBox.bind();this.oDebug=new EbayHTMLText(this,cfg.sDbg);this.oDebug.bind();var kgHelper=new EbayKgClientInfoHelper(this,"kgHelper");if(this.hiddenBox){var arr=new Array(["a1","ScriptEngineMajorVersion()"],["a2","ScriptEngineMinorVersion()"],["a3","ScriptEngineBuildVersion()"],["a4","navigator.appCodeName"],["a5","navigator.appName"],["a6","navigator.appVersion"],["a7","helper.exec(['navigator.productSub','navigator.appMinorVersion'])"],["a8","navigator.browserLanguage"],["a9","navigator.cookieEnabled"],["a10","helper.exec(['navigator.oscpu','navigator.cpuClass'])"],["a11","navigator.onLine"],["a12","navigator.platform"],["a13","navigator.systemLanguage"],["a14","navigator.userAgent"],["a15","navigator.javaEnabled()"],["a16","helper.exec(['navigator.language', 'navigator.userLanguage'])"],["a17","document.defaultCharset"],["a18","document.domain"],["a19","screen.deviceXDPI"],["a20","screen.deviceYDPI"],["a21","screen.fontSmoothingEnabled"],["a22","screen.updateInterval"],["a23","screen.width"],["a24","screen.height"],["a25","screen.colorDepth"],["a26","screen.availHeight"],["a27","screen.availwidth"],["a28","kgObject.clientTime"],["a29","kgObject.clientTimeZone()"],["a30","kgObject.clientSoftware()"],["a31","kgHelper.isAJAXSupported()"],["a32","kgHelper.getCPU()"],["a33","kgHelper.isCssSupported()"],["a34","kgHelper.isDotNetSupported()"],["a35","kgHelper.isGearsInstalled()"],["a36","kgHelper.getGeoLocation()"],["a37","kgHelper.hasGoogleChrome()"],["a38","kgHelper.isOnline()"],["a39","kgHelper.hasOpenOffice()"],["a40","kgHelper.getOperatingSystem()"],["a41","kgHelper.isWebKitSupported()"],["a42","kgHelper.hasEvilPlugin()"]);var infoStr="";var helper=new kgClientInfoHelper();var kgObject=new kgClientInfoObject();for(var k=0,len=arr.length;k<len;k++){var paramStr=arr[k][0];var paramExp=arr[k][1];var val="";try{val=eval(paramExp);if(typeof(val)=='undefined'){val="na";}}catch(e){val="na";}
+infoStr+=helper.outputKeyValuePair(paramStr,val)+"~";}
+var encStr=encodeURIComponent(infoStr);this.hiddenBox.setValue(encStr);this.oDebug.setValue("ld");}
+this.oKeyPatternInfo=new EbayKgClientInfo(this,"kgClienInfo",cfg);}
+kgClientInfoHelper=function(){this.exec=function(possibles){for(var i=0,len=possibles.length;i<len;i++){try{var val=eval(possibles[i]);if(val)return val;}
+catch(e){}}
+return"";},this.activeXDetect=function(componentClassID){var componentVersion=document.body.getComponentVersion('{'+componentClassID+'}','ComponentID');return(componentVersion!=null)?componentVersion:false;},this.stripIllegalChars=function(str){var tmp="";str=str.toLowerCase();for(var x=0,len=str.length;x<len;x++){if(str.charAt(x)!='\n'&&str.charAt(x)!='/'&&str.charAt(x)!="\\"){tmp+=str.charAt(x);}else if(str.charAt(x)=='\n'){tmp+="n";}}
+return tmp;},this.stripFullPath=function(tempFileName,lastDir){var fileName=tempFileName;filenameStart=0;filenameStart=fileName.lastIndexOf(lastDir);if(filenameStart<0)
+return tempFileName;filenameFinish=fileName.length;fileName=fileName.substring(filenameStart+lastDir.length,filenameFinish);return fileName;},this.outputKeyValuePair=function(key,val){return key+"="+val;}}
+kgClientInfoObject=function(){this.clientTime=new Date(),this.clientTimeZone=function(){var gmtHours=(new Date().getTimezoneOffset()/60)*(-1);return gmtHours;},this.clientSoftware=function(){var SEP='|';var PAIR='=';var ua=navigator.userAgent.toLowerCase();var opera=ua.indexOf("opera")>=0;var ie=ua.indexOf("msie")>=0&&!opera;var helper=new kgClientInfoHelper();var t="";var ht=new KeyValueMap();ht.put('npnul32.dll','def');ht.put('npqtplugin6.dll','qt6');ht.put('npqtplugin5.dll','qt5');ht.put('npqtplugin4.dll','qt4');ht.put('npqtplugin3.dll','qt3');ht.put('npqtplugin2.dll','qt2');ht.put('npqtplugin.dll','qt1');ht.put('nppdf32.dll','pdf');ht.put('NPSWF32.dll','swf');ht.put('NPJava11.dll','j11');ht.put('NPJava12.dll','j12');ht.put('NPJava13.dll','j13');ht.put('NPJava32.dll','j32');ht.put('NPJava14.dll','j14');ht.put('npoji600.dll','j61');ht.put('NPJava131_16.dll','j16');ht.put('NPOFFICE.DLL','mso');ht.put('npdsplay.dll','wpm');ht.put('npwmsdrm.dll','drm');ht.put('npdrmv2.dll','drn');ht.put('nprjplug.dll','rjl');ht.put('nppl3260.dll','rpl');ht.put('nprpjplug.dll','rpv');ht.put('npchime.dll','chm');ht.put('npCortona.dll','cor');ht.put('np32dsw.dll','dsw');ht.put('np32asw.dll','asw');if(navigator.plugins.length>0){temp="";moz="";key="";lastDir="Plugins";for(var g=0,len=navigator.plugins.length;g<len;g++){plugin=navigator.plugins[g];moz=helper.stripFullPath(plugin.filename,lastDir);key=ht.containsKey(moz);if(key){temp+=ht.get(moz)+SEP;}else{temp+="";}}
+t=helper.stripIllegalChars(temp);}else if(navigator.mimeTypes.length>0){key="";for(var i=0,len=navigator.mimeTypes.length;i<len;i++){mimeType=navigator.mimeTypes[i];key=ht.containsKey(mimeType);if(key){t+=ht.get(mimeType)+PAIR+mimeType+SEP;}else{t+="unknown"+PAIR+mimeType;}}}else if(ie){names=new Array("abk","wnt","aol","arb","chs","cht","dht","dhj","dan","dsh","heb","ie5","icw","ibe","iec","ieh","iee","jap","krn","lan","swf","shw","msn","wmp","obp","oex","net","pan","thi","tks","uni","vtc","vnm","mvm","vbs","wfd");components=new Array("7790769C-0471-11D2-AF11-00C04FA35D02","89820200-ECBD-11CF-8B85-00AA005B4340","47F67D00-9E55-11D1-BAEF-00C04FC2D130","76C19B38-F0C8-11CF-87CC-0020AFEECF20","76C19B34-F0C8-11CF-87CC-0020AFEECF20","76C19B33-F0C8-11CF-87CC-0020AFEECF20","9381D8F2-0288-11D0-9501-00AA00B911A5","4F216970-C90C-11D1-B5C7-0000F8051515","283807B5-2C60-11D0-A31D-00AA00B92C03","44BBA848-CC51-11CF-AAFA-00AA00B6015C","76C19B36-F0C8-11CF-87CC-0020AFEECF20","89820200-ECBD-11CF-8B85-00AA005B4383","5A8D6EE0-3E18-11D0-821E-444553540000","630B1DA0-B465-11D1-9948-00C04F98BBC9","08B0E5C0-4FCB-11CF-AAA5-00401C608555","45EA75A0-A269-11D1-B5BF-0000F8051515","DE5AED00-A4BF-11D1-9948-00C04F98BBC9","76C19B30-F0C8-11CF-87CC-0020AFEECF20","76C19B31-F0C8-11CF-87CC-0020AFEECF20","76C19B50-F0C8-11CF-87CC-0020AFEECF20","D27CDB6E-AE6D-11CF-96B8-444553540000","2A202491-F00D-11CF-87CC-0020AFEECF20","5945C046-LE7D-LLDL-BC44-00C04FD912BE","22D6F312-B0F6-11D0-94AB-0080C74C7E95","3AF36230-A269-11D1-B5BF-0000F8051515","44BBA840-CC51-11CF-AAFA-00AA00B6015C","44BBA842-CC51-11CF-AAFA-00AA00B6015B","76C19B32-F0C8-11CF-87CC-0020AFEECF20","76C19B35-F0C8-11CF-87CC-0020AFEECF20","CC2A9BA0-3BDD-11D0-821E-444553540000","3BF42070-B3B1-11D1-B5C5-0000F8051515","10072CEC-8CC1-11D1-986E-00A0C955B42F","76C19B37-F0C8-11CF-87CC-0020AFEECF20","08B0E5C0-4FCB-11CF-AAA5-00401C608500","4F645220-306D-11D2-995D-00C04F98BBC9","73FA19D0-2D75-11D2-995D-00C04F98BBC9");document.body.addBehavior("#default#clientCaps")
+for(i=0;i<components.length;i++){ver=helper.activeXDetect(components[i]);var name=names[i];if(ver){t+=name+PAIR+ver+SEP;}else{t+="";}}}
+return t;}}
+ebay.oDocument.oPage.initKGClient=function(){var oC=this.parent.getConfig("kgClientInfoCfg");if(oC)
+new kgClientInfoWriter(this,"EbayKgClientInfo",oC);}
+
+// \include\lib\_global\features\known_good\known_good_keyvaluemap.js 
+
+function KeyValueMap()
+{var keysToIndex={__indexToValue:[],__indexToKeys:[]};var activeEnum=[];var tableLength=0;var self=this;function Enumeration(arrNm)
+{var lastIndex=null;var enumIndex=0;while(typeof activeEnum[enumIndex]=='number')enumIndex+=1;activeEnum[enumIndex]=0;this.hasNext=this.hasMoreElements=function(){if(activeEnum[enumIndex]<tableLength){return true;}else{if(typeof activeEnum[enumIndex]=='number'){activeEnum[enumIndex]=null;}
+return false;}};this.next=this.nextElement=function(){if(this.hasNext){lastIndex=activeEnum[enumIndex];return keysToIndex[arrNm][activeEnum[enumIndex]++];}else{return null;}};this.remove=function(){if(typeof lastIndex=='number'){self.remove(keysToIndex.__indexToKeys[lastIndex]);lastIndex=null;}};};this.get=function(key){if(typeof keysToIndex[key]=='number'){return keysToIndex.__indexToValue[keysToIndex[key]];}else{return null;}};this.put=function(key,value){if(typeof keysToIndex[key]=='number'){keysToIndex.__indexToValue[keysToIndex[key]]=value;}else{keysToIndex[key]=tableLength;keysToIndex.__indexToValue[tableLength]=value;keysToIndex.__indexToKeys[tableLength++]=key;}};this.remove=function(key){var remIndex=keysToIndex[key];if(typeof remIndex=='number'){delete keysToIndex[key];tableLength-=1;for(var c=remIndex;c<tableLength;c++){keysToIndex.__indexToValue[c]=keysToIndex.__indexToValue[c+1];keysToIndex[(keysToIndex.__indexToKeys[c]=keysToIndex.__indexToKeys[c+1])]=c;}
+for(var c=0,len=activeEnum.length;c<len;c++){if((activeEnum[c])&&(remIndex<activeEnum[c])){activeEnum[c]-=1;}}}};this.size=function(){return tableLength;};this.__enumerate=function(type){return new Enumeration(type);};KeyValueMap.prototype.elements=function(){return this.__enumerate('__indexToValue');}
+KeyValueMap.prototype.keys=function(){return this.__enumerate('__indexToKeys');}
+KeyValueMap.prototype.clear=function(){var e=this.keys();while(e.hasNext()){this.remove(e.next());}}
+KeyValueMap.prototype.toString=function(){var n,e=this.keys();var st='';while(e.hasNext()){n=e.next();st+=n+' =&gt; '+this.get(n)+'\r\n';}
+return st;}
+KeyValueMap.prototype.contains=function(testVal){var e=this.elements();while(e.hasNext()){if(e.next()==testVal)return true;}
+return false;}
+KeyValueMap.prototype.containsValue=KeyValueMap.prototype.contains;KeyValueMap.prototype.containsKey=function(testKey){return(this.get(testKey)!=null);}
+KeyValueMap.prototype.isEmpty=function(){return(this.size()==0);}
+KeyValueMap.prototype.putAll=function(hTable){if(hTable.constructor==KeyValueMap){var n,e=hTable.keys();while(e.hasNext()){n=e.next();this.put(n,hTable.get(n));}}}
+KeyValueMap.prototype.clone=function(){var ht=new KeyValueMap();ht.putAll(this);return ht;}
+KeyValueMap.prototype.equals=function(o){return(o==this);}}
+
+// \include\lib\_global\features\my_ebay\kgp2_flash.js 
+
+ebay.oDocument.oPage.onAfterLoad=function(){var c=this.parent.getConfig("KG.EditSecQ");if(c)
+{var oEditSec=new EbayHTMLAnchor(this,c.sEditLink);oEditSec.bind();oEditSec.onclick=function()
+{var oC=ebay.oDocument.getConfig("kg");var oFormField=new EbayHTMLText(this,oC.sFormField);oFormField.bind();var oHttpFormField=new EbayHTMLText(this,oC.sHttpFormField);oHttpFormField.bind();this.eElem.href=this.eElem.href+"&"+oFormField.name+"="+oFormField.getValue()+"&"+oHttpFormField.name+"="+oHttpFormField.getValue();}}}
+// b=18099599 -->

@@ -1,0 +1,160 @@
+//<!--
+// \include\lib\_global\_ui\_base\anchor.js 
+
+function EbayHTMLAnchor(pParent,pName,pDisabled,pCfg)
+{if(!this.objType)
+this.objType="EbayHTMLAnchor";this.base=EbayHTML;this.base(pParent,pName,pName,pDisabled,pCfg);this.getElem=ebHTMLAnchorGetElem;this.enableBase=this.enable;this.enable=ebHTMLAnchorEnable;this.subscribeEvents("onclick");}
+function ebHTMLAnchorGetElem(pName)
+{var d=this.oDocument.doc,l=null,len=null;l=d.links[pName];if(l)return l;if(d.getElementById)
+l=d.getElementById(pName);if(l)return l;if(d.all)
+l=d.all[pName];if(l)return l;if(d.layers)
+{var lyrs=d.layers;len=lyrs.length;for(var i=0;i<len;i++)
+{l=this.getElem(lyrs[i].document,pName);if(l)
+return l;}}
+len=d.links.length;for(var j=0;j<len;j++)
+{l=d.links[j];if(typeof(l.name)=="undefined")
+{if(l.onclick)
+{var oc=l.onclick.toString();if(oc.indexOf("{#"+pName+"#}")!=-1)
+return l;}}
+else
+{if(l.name==pName)
+return l;}
+l=null;}
+return l;}
+function ebHTMLAnchorEnable(pEnable)
+{var cur=(pEnable)?"hand":"default";var el=this.eElem;if(el&&el.style)
+{el.style.cursor=cur;el.style.color=pEnable?"":"gray";}
+this.enableBase(pEnable);}
+function setEbayLink(pS)
+{return true;}
+
+// \include\lib\_global\_ui\_base\text.js 
+
+function EbayHTMLText(pParent,pName,pDisabled,pCfg,bHidden)
+{if(!this.objType)
+this.objType="EbayHTMLText";this.base=EbayHTMLFormElem;this.base(pParent,pName,pDisabled,pCfg);this.value=ebHTMLTextValue;this.getValue=ebHTMLTextGetValue;this.setValue=ebHTMLTextSetValue;this.select=ebHTMLTextSelect;this.enableBase=this.enable;this.enable=ebHTMLTextEnable;if(bHidden!=true)
+this.subscribeEvents("onchange","onblur","onfocus","onkeydown","onkeyup");}
+function ebHTMLTextValue(pVal)
+{var e=this.eElem;if(e)
+{if(typeof(pVal)=="undefined")
+return e.value;else
+e.value=pVal;}}
+function ebHTMLTextGetValue()
+{return this.value();}
+function ebHTMLTextSetValue(pVal)
+{return this.value(pVal);}
+function ebHTMLTextSelect()
+{var e=this.eElem;if(e)
+e.select();}
+function ebHTMLTextEnable(pEnable)
+{this.enableBase(pEnable);this.setStyle('backgroundColor',!pEnable?'#ccc':'#fff');}
+
+// \include\lib\_global\_ui\_ex\text_indexed.js 
+
+function EbayHTMLTextIndexed(pParent,pName,pDisabled,pCfg)
+{if(!this.objType)
+this.objType="EbayHTMLTextIndexed";this.base=EbayHTMLText;this.base(pParent,pName,pDisabled,pCfg);this.getElem=ebHTMLTextIndexedGetElem;this.iIndex=pCfg.iElemIndex?pCfg.iElemIndex:0;}
+function ebHTMLTextIndexedGetElem(pName)
+{var oD=this.oDocument,t=oD.getFormElem(pName,"text");t=t?t:oD.getFormElem(pName,"textarea");t=t?t:oD.getFormElem(pName);if(t)
+{if(typeof(t.length)!="undefined")
+{if(t.length>0)
+t=t[this.iIndex];}}
+return t;}
+
+// \include\lib\_global\_ui\_base\layer.js 
+
+function EbayHTMLLayer(pParent,pName,pDisabled,pCfg)
+{if(!this.objType)
+this.objType="EbayHTMLLayer";this.base=EbayHTML;this.base(pParent,pName,pName,pDisabled,pCfg);this.aBindEvents=new Array;this.getElem=ebHTMLLayerGetElem;this.getValue=ebHTMLLayerGetValue;this.setValue=ebHTMLLayerSetValue;}
+function ebHTMLLayerGetElem(pName)
+{var s=pName,d=this.oDocument.doc;if(d.getElementById)
+return d.getElementById(s);else if(d.all)
+return d.all(s);this.throwWarning("Not supported","getElem");}
+function ebHTMLLayerGetValue(pIsText)
+{if(this.eElem)
+{if(pIsText)
+{if(this.oDocument.oGlobals.oClient.bFirefox)
+return this.eElem.textContent;else
+return this.eElem.innerText;}
+else
+return this.eElem.innerHTML;}
+else
+return"";}
+function ebHTMLLayerSetValue(pVal,pIsText)
+{if(this.eElem)
+{if(pIsText)
+{if(this.oDocument.oGlobals.oClient.bFirefox)
+this.eElem.textContent=pVal;else
+this.eElem.innerText=pVal;}
+else
+this.eElem.innerHTML=pVal;}}
+
+// \include\lib\_global\_ui\_ex\char_counter.js 
+
+function EbayCharCounterManager(pParent,pName,pCfg)
+{if(!this.objType)
+this.objType="EbayCharCounterManager";this.baseObject=EbayBaseControl;this.baseObject(pParent,pName);this.createControls=ebCharCounterCreateControls;this.createControls();}
+function EbayCharCounter(pParent,pName,pCfg)
+{if(!this.objType)
+this.objType="EbayCharCounter";this.baseObject=EbayBaseControl;this.baseObject(pParent,pName);this.oConfig=pCfg?pCfg:null;this.oConfig.elemIndex=this.oConfig.elemIndex?this.oConfig.elemIndex-1:0;this.updateDiv=ebCharCounterUpdateDiv;this.dLength=ebDetermineLength;this.checkCounter=ebCheckCounter;this.autoClear=ebCharCounterOnAutoClear;this.alreadyCleared=false;this.clearCounter=ebCharCounterClearCounter;this.oCounter=null;this.init=function()
+{var c=this.oConfig;var inp=this.oInput=new EbayHTMLTextIndexed(this,c.inputFieldId,false,c);this.oInput.iIndex=c.elemIndex;inp.subscribeEvents("onclick");if(this.oInput.length>0)
+this.oInput=this.oInput[this.elemIndex];this.oLayer=new EbayHTMLLayer(this,c.divForTextId,false,c);if(c.autoClear)
+{var autoclear=this.oInput._registerEvent("onclick","autoClear");this.oInput.autoClear=this.autoClear;}
+this._registerListener(this.oDocument._getEvent("load"),this.EVENT_AFTER,"updateDiv");var e1=this.oInput._registerEvent("onblur","");var e2=this.oInput._registerEvent("onfocus","");this._registerListener(e1,this.EVENT_AFTER,"clearCounter");this._registerListener(e2,this.EVENT_AFTER,"checkCounter");}
+this.init();}
+function ebCharCounterCreateControls()
+{var aConfigs=ebay.oDocument.aConfigs;var c;for(var oc in aConfigs)
+{c=aConfigs[oc];if(c.objType=="EBayCharCounterConfig")
+{if(c.inputFieldId&&c.divForTextId)
+{new EbayCharCounter(this,oc,c);}}}}
+function ebCharCounterOnAutoClear()
+{if(this.eElem.defaultValue!=this.eElem.value)
+{return;}
+if(!this.alreadyCleared)
+{this.value("");this.parent.updateDiv();this.alreadyCleared=true;}}
+function ebCharCounteronChangeDiv()
+{this.parent.updateDiv();}
+function ebCheckCounter()
+{var iDelay=((this.oConfig)?this.oConfig.iCounterDelay:false)||1000;if(this.oCounter)
+window.clearInterval(this.oCounter);this.oCounter=window.setInterval("ebay._getControl(\""+this.name+"\").updateDiv()",iDelay);}
+function ebCharCounterClearCounter()
+{if(this.oCounter)
+window.clearInterval(this.oCounter);}
+function ebCharCounterUpdateDiv()
+{var v=this.oInput.value(),c=this.oConfig;var l=ebDetermineLength(v);var chrRemain=c.maxChars-l;var max=c.maxChars;if(l>max)
+{var i=parseInt(max)+ebCharCounterGetNoofCRs(v);var cl=this.oGlobals.oClient;if(v.substr(i)!="\r\n")
+i++;if(cl.bFirefox)
+var iPos=this.oInput.eElem.scrollTop
+this.oInput.value(v.substr(0,max));if(cl.bFirefox)
+this.oInput.eElem.scrollTop=iPos;}
+var str='';if(chrRemain<=0)
+str=c.noCharLeft;else if(chrRemain==1)
+str=c.singleCharLeft;else
+str=c.localizeText;this.oLayer.setValue(str.replaceTokensEx("##n##",chrRemain));}
+function ebDetermineLength(v)
+{if(typeof(v)=="string")
+{var regexp=new RegExp("\r\n","g");var lines=v.match(regexp);v=v.replace(regexp,"");var l=0;if(lines!=null)
+{var lineCount=lines.length;if(lineCount>=1)
+{l=lineCount*2;}}
+l=l+v.length;return l;}
+else
+{return 0;}}
+function EBayCharCounterConfig(name)
+{if(!this.objType)
+this.objType="EBayCharCounterConfig";this.base=EbayConfig;this.base(name);this.elemIndex=0;this.formname="";this.inputFieldId="";this.divForTextId="";this.localizeText="";this.singleCharLeft="";this.noCharLeft="";this.maxChars=0;this.autoClear=false;this.anchorId="";}
+function Localize(a)
+{return a;}
+function ebCharCounterGetNoofCRs(v)
+{var regexp=new RegExp("\r\n","g");var lines=v.match(regexp);var l=0;if(lines!=null)
+{var lineCount=lines.length;if(lineCount>=1)
+{l=lineCount;}}
+return l-1;}
+
+// \include\lib\_global\features\charcounter\charcounter_mgr_impl.js 
+
+ebay.oDocument.oPage.createCharCounterMgr=function()
+{with(this)
+{var oD=parent;_registerListener(oD._getEvent("load"),EVENT_BEFORE,"createCCMgr");this.createCCMgr=function()
+{new EbayCharCounterManager(oD.parent,"ccManager");}}}
+ebay.oDocument.oPage.createCharCounterMgr();
+// b=18099599 -->

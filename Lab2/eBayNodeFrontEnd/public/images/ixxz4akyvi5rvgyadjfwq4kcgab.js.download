@@ -1,0 +1,220 @@
+(function(b,k){var g,p,h,n,v=function(m){var q,r,a,l,t,u;q=this;r=raptor.require("ebay.profiler.Profiler");a=b.extend({},m);var o=function(c){var a=b(".frame",h).not(".first"),d=b.feedContext.fallbackFrameBaseUrl;a.each(function(){var a=b(this),e=a.data("placement-id");c&&-1==c.indexOf(e)||(e="<iframe scrolling='no' frameborder='no'  border='0' src='"+d.replace("{id}",e)+"' title='Billboard banner'></iframe>",a.html(e),a.attr("data-is-fallback","true"))});b.feedContext.isSiteSpeedLazyLoadMFBBOn&&
+n.fadeIn(350,"linear")},s=function(c){if(c)for(var a=0;a<c.length;a++)c[a].id&&c[a].content&&b('.frame[data-placement-id="'+c[a].id+'"]',h).attr("data-is-fallback","false");var d=b(".beta-placement .frame, .gamma-placement .frame").not(".first");d.each(function(){if(void 0===b(this).data("isFallback"))return d.remove(),!1})};b.extend(q,{trackImages:{},request:function(){var c=(new Date).getTime(),e=raptor.require("ebay.cookies"),d=b.feedContext.rtmClientCallUrl,e=e.readCookie("npii","cguid");l=c;
+h.hasClass("fallback")||!d?(b.feedContext.isSiteSpeedLazyLoadMFBBOn&&n.fadeIn(350,"linear"),a.callback&&"function"===typeof a.callback&&k.setTimeout(a.callback,a.timeout?Math.max(0,a.timeout-((new Date).getTime()-l)):0)):(b.rtmCallback=g,b.ajax({url:d,dataType:"jsonp",data:{ord:c,cg:e?e:c,cb:"$.rtmCallback.callback"},error:function(c){4!=c.readyState&&200!=c.status&&k.setTimeout(function(){s();o();a.callback&&"function"===typeof a.callback&&a.callback()},a.timeout?Math.max(0,a.timeout-((new Date).getTime()-
+l)):0)}}),t=k.setTimeout(function(){u=!0;s();o();a.callback&&"function"===typeof a.callback&&a.callback()},(a.timeout?Math.max(0,a.timeout-((new Date).getTime()-l)):0)+2500))},callback:function(c){k.setTimeout(function(){b.feedContext.isSiteSpeedLazyLoadMFBBOn&&n.fadeIn(350,"linear");if(c&&b.isArray(c)&&0<c.length&&!u){k.clearTimeout(t);var e=[],d=(new Date).getTime()-l;k.oGaugeInfo&&("undefined"!=typeof r&&0<d)&&r.addParam("i_7i",d);s(c);for(d=0;d<c.length;d++){var f=c[d];if(f.CSSMetaData&&f.CSSMetaData.CSSURLs)for(var f=
+f.CSSMetaData.CSSURLs,i=f.length,j=0;j<i;j++){var g=b("<link>").attr({rel:"stylesheet",href:f[j]});p.append(g)}else c[d].id&&(f=b('.frame[data-placement-id="'+c[d].id+'"]',h),i=c[d].content,j=/<img +([\w\-]+=["']?[\w;\-]*?["']? +)*src=["']https?:\/\/sr[xv]([^"]*?)["'].*?>/ig.exec(i),0!=f.length&&i&&(j&&(i=i.replace(j[0],""),q.trackImages["FRM_"+c[d].id]=j[0]),f.html(i),e.push(c[d].id)))}var m=[];b(".frame[data-placement-id]",h).each(function(){var a=b(this).attr("data-placement-id");-1==e.indexOf(a)&&
+m.push(parseInt(a))});0<m.length&&o(m)}else o();a.callback&&"function"===typeof a.callback&&a.callback()},a.timeout?Math.max(0,a.timeout-((new Date).getTime()-l)):0)},trackPlacement:function(a){if(a){var a="FRM_"+a,b=g.trackImages[a];b&&(p.append(b),delete g.trackImages[a])}}})};b(document).ready(function(){p=b("body");h=b(".billboard, .connected-placements");n=b(".scroll-container",h)});b.rtmCall=function(b){b=b||{};null==g&&(g=new v(b));return g}})(jQuery,window);(function(b,c){function r(a){if(s>=U||1>=h.length&&B)s=0,c.clearInterval(l);else if(B){var e=a?0==i?h.length-1:i-1:i==h.length-1?0:i+1,V=j&&1<f.length&&1<d.length&&!C&&!J;K=b(h[i]);D=b(h[e]);!a&&0==e&&s++;D.fadeIn(m,n);K.fadeOut(m,n);o.trackPlacement(D.data("placementId"));V&&(b(f[i]),t=b(f[e]),c.setTimeout(function(){t.fadeIn(m,n);f.not(t).fadeOut(m,n)},W),o.trackPlacement(t.data("placementId")),b(d[i]),u=b(d[e]),c.setTimeout(function(){u.fadeIn(m,n);d.not(u).fadeOut(m,n)},X),o.trackPlacement(u.data("placementId")));
+i=e}}function v(a){if(a.origin&&-1<a.origin.indexOf("doubleclick")){c.oGaugeInfo&&"undefined"!=typeof L&&L.addParam("i_4i",(new Date).getTime()-Y);var b=!1;-1<a.data.indexOf("houseaddisplayed")&&(b=!0);-1<a.data.indexOf("vimeovideo:")&&(p=E(a.data),F&&M(),b=!0,c.removeEventListener?c.removeEventListener("message",v,!1):c.detachEvent("onmessage",v,!1));b&&(j=!0,F&&N())}}function O(a,b){var c={method:a};b&&(c.value=b);g[0].contentWindow.postMessage(JSON.stringify(c),Z)}function $(){h=b(k).find(".frames .frame");
+f=b(w).find(".frames .frame");d=b(x).find(".frames .frame");f.each(function(){var a=b(this);P(a.html())&&Q(p,a);a.data("isFallback")&&(C=!0)});d.first().removeClass("hide");d.each(function(){b(this).data("isFallback")&&(J=!0)});B=!0;b.feedContext.billboardRotationInterval&&(y=b.feedContext.billboardRotationInterval);0==b(k+G+", "+w+G+", "+x+G).length&&(!H&&!z)&&(c.clearInterval(l),l=c.setInterval(r,y));1<h.length&&(A.append('<button class="arrow arrow-left" aria-label="'+b.feedL10N.PrevBillboard+
+'"><span class="arrow-image"></span></button>'),A.append('<button class="arrow arrow-right" aria-label="'+b.feedL10N.NextBillboard+'"><span class="arrow-image"></span></button>'))}function M(){var a=b(f[0]);p&&g.length&&Q(p,a);a.data("isFallback")&&(C=!0)}function N(){var a=b.feedContext.gammaInHouse;if(j&&a&&a.content){var e=d.first();e.attr({"data-placement-id":a.placementId,"data-is-fallback":a.isFallback});e.html(a.content);for(var c=0;c<a.cssList.length;c++)q.append(b("<link>").attr({rel:"stylesheet",
+href:a.cssList[c]}));for(c=0;c<a.jsList.length;c++)q.append(b("<script>").attr({type:"text/javascript",src:a.jsList[c]}));e.removeClass("hide")}}function Q(a,c){void 0==a&&(a=E(c.html()));c.append("<div class='connected-placements-link'>");b(".connected-placements-link").data("videoId",a);b(".connected-placements-link",c).on("click",aa)}function P(a){return"string"===typeof a&&-1<a.indexOf("vimeovideo:")}function E(a){return(a=a.match(/vimeovideo:([0-9]+)/))&&a[1]}function aa(a){a.preventDefault();
+a=R.replace(S,b(a.target).data("videoId"));b("#"+T).length||b(".connected-placements").append(g);g.attr("src")!=a&&g.attr("src",a);I.show({duration:500});a=q.hasClass("sz1200")?"1200px":"980px";g.fadeIn().animate({width:a,height:"404px"},500,"easeInOutQuint",function(){O("play")});b(".mask").on("click",ba).insertBefore(g)}function ba(){I.hide({duration:500});g.animate({width:"300px",height:"250px"},400,"easeInOutQuint",function(){O("unload")}).fadeOut()}var I,q,g,p,o,l,F,j=!1,W=400,X=800,i=0,U=3,
+s=0,B=!1,z=!1,H=!1,m=1200,n="swing",G=":hover",y=3500,C=!1,Y=(new Date).getTime(),J=!1,S="{videoId}",w=".beta-placement",x=".gamma-placement",k=".alpha-placement",Z="http://player.vimeo.com",T="connected-placements-video",L=raptor.require("ebay.profiler.Profiler"),f,t,d,u,A,K,h,D,R="//player.vimeo.com/video/"+S+"?autoplay=0&byline=0&badge=0&portrait=0&title=0&api=1";b(function(){q=b("body");A=b(k);h=A.find(".frames .frame");f=b(w).find(".frames .frame");d=b(x).find(".frames .frame");b(".connected-placements").offset();
+d.length&&(I=b.mask(),g=b('<iframe id="'+T+'" src="'+R+'" width="300" height="250" title="'+b.feedL10N.WatchVideo+'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'));var a=k+", "+w+", "+x;q.on("mouseenter focus",a,function(a){if(b(a.currentTarget).hasClass(k.substring(1))||j)s=0,H=!0,c.clearInterval(l)}).on("mouseleave focusout",a,function(a){if((b(a.currentTarget).hasClass(k.substring(1))||j)&&!b(a.target).parents(k.substring(1)).length)c.clearInterval(l),b.feedContext.billboardRotationInterval&&
+(y=b.feedContext.billboardRotationInterval),H=!1,z||(l=c.setInterval(r,y))}).on("click",".alpha-placement .arrow-left",function(a){a.preventDefault();z=!0;r(!0)}).on("click",".alpha-placement .arrow-right",function(a){a.preventDefault();z=!0;r()});a=b(f[0]);if(!a.find("iframe").length||a.data("isFallback"))j=!0;a=a.html();P(a)&&(p=E(a));o=b.rtmCall({callback:$,timeout:b.feedContext.connectedPlacementsPopulateTimeout});b.feedContext.isSiteSpeedLazyLoadMFBBOn?addWindowOnLoad(o.request):o.request();
+j&&N();p&&M();F=!0});c.addEventListener?c.addEventListener("message",v,!1):c.attachEvent("onmessage",v,!1)})(jQuery,window);//@JsDoNotOptimize
+/*
+ * jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+ *
+ * Uses the built in easing capabilities added In jQuery 1.1
+ * to offer multiple easing options
+ *
+ * TERMS OF USE - jQuery Easing
+ * 
+ * Open source under the BSD License. 
+ * 
+ * Copyright Â© 2008 George McGinley Smith
+ * All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, 
+ * are permitted provided that the following conditions are met:
+ * 
+ * Redistributions of source code must retain the above copyright notice, this list of 
+ * conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list 
+ * of conditions and the following disclaimer in the documentation and/or other materials 
+ * provided with the distribution.
+ * 
+ * Neither the name of the author nor the names of contributors may be used to endorse 
+ * or promote products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+ * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ *
+*/
+
+// t: current time, b: begInnIng value, c: change In value, d: duration
+jQuery.easing['jswing'] = jQuery.easing['swing'];
+
+jQuery.extend( jQuery.easing,
+{
+	def: 'easeOutQuad',
+	swing: function (x, t, b, c, d) {
+		//alert(jQuery.easing.default);
+		return jQuery.easing[jQuery.easing.def](x, t, b, c, d);
+	},
+	easeInQuad: function (x, t, b, c, d) {
+		return c*(t/=d)*t + b;
+	},
+	easeOutQuad: function (x, t, b, c, d) {
+		return -c *(t/=d)*(t-2) + b;
+	},
+	easeInOutQuad: function (x, t, b, c, d) {
+		if ((t/=d/2) < 1) return c/2*t*t + b;
+		return -c/2 * ((--t)*(t-2) - 1) + b;
+	},
+	easeInCubic: function (x, t, b, c, d) {
+		return c*(t/=d)*t*t + b;
+	},
+	easeOutCubic: function (x, t, b, c, d) {
+		return c*((t=t/d-1)*t*t + 1) + b;
+	},
+	easeInOutCubic: function (x, t, b, c, d) {
+		if ((t/=d/2) < 1) return c/2*t*t*t + b;
+		return c/2*((t-=2)*t*t + 2) + b;
+	},
+	easeInQuart: function (x, t, b, c, d) {
+		return c*(t/=d)*t*t*t + b;
+	},
+	easeOutQuart: function (x, t, b, c, d) {
+		return -c * ((t=t/d-1)*t*t*t - 1) + b;
+	},
+	easeInOutQuart: function (x, t, b, c, d) {
+		if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
+		return -c/2 * ((t-=2)*t*t*t - 2) + b;
+	},
+	easeInQuint: function (x, t, b, c, d) {
+		return c*(t/=d)*t*t*t*t + b;
+	},
+	easeOutQuint: function (x, t, b, c, d) {
+		return c*((t=t/d-1)*t*t*t*t + 1) + b;
+	},
+	easeInOutQuint: function (x, t, b, c, d) {
+		if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+		return c/2*((t-=2)*t*t*t*t + 2) + b;
+	},
+	easeInSine: function (x, t, b, c, d) {
+		return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+	},
+	easeOutSine: function (x, t, b, c, d) {
+		return c * Math.sin(t/d * (Math.PI/2)) + b;
+	},
+	easeInOutSine: function (x, t, b, c, d) {
+		return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+	},
+	easeInExpo: function (x, t, b, c, d) {
+		return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
+	},
+	easeOutExpo: function (x, t, b, c, d) {
+		return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+	},
+	easeInOutExpo: function (x, t, b, c, d) {
+		if (t==0) return b;
+		if (t==d) return b+c;
+		if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
+		return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
+	},
+	easeInCirc: function (x, t, b, c, d) {
+		return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+	},
+	easeOutCirc: function (x, t, b, c, d) {
+		return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+	},
+	easeInOutCirc: function (x, t, b, c, d) {
+		if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+		return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
+	},
+	easeInElastic: function (x, t, b, c, d) {
+		var s=1.70158;var p=0;var a=c;
+		if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+		if (a < Math.abs(c)) { a=c; var s=p/4; }
+		else var s = p/(2*Math.PI) * Math.asin (c/a);
+		return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+	},
+	easeOutElastic: function (x, t, b, c, d) {
+		var s=1.70158;var p=0;var a=c;
+		if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+		if (a < Math.abs(c)) { a=c; var s=p/4; }
+		else var s = p/(2*Math.PI) * Math.asin (c/a);
+		return a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b;
+	},
+	easeInOutElastic: function (x, t, b, c, d) {
+		var s=1.70158;var p=0;var a=c;
+		if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
+		if (a < Math.abs(c)) { a=c; var s=p/4; }
+		else var s = p/(2*Math.PI) * Math.asin (c/a);
+		if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+		return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+	},
+	easeInBack: function (x, t, b, c, d, s) {
+		if (s == undefined) s = 1.70158;
+		return c*(t/=d)*t*((s+1)*t - s) + b;
+	},
+	easeOutBack: function (x, t, b, c, d, s) {
+		if (s == undefined) s = 1.70158;
+		return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+	},
+	easeInOutBack: function (x, t, b, c, d, s) {
+		if (s == undefined) s = 1.70158; 
+		if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+		return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+	},
+	easeInBounce: function (x, t, b, c, d) {
+		return c - jQuery.easing.easeOutBounce (x, d-t, 0, c, d) + b;
+	},
+	easeOutBounce: function (x, t, b, c, d) {
+		if ((t/=d) < (1/2.75)) {
+			return c*(7.5625*t*t) + b;
+		} else if (t < (2/2.75)) {
+			return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+		} else if (t < (2.5/2.75)) {
+			return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+		} else {
+			return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+		}
+	},
+	easeInOutBounce: function (x, t, b, c, d) {
+		if (t < d/2) return jQuery.easing.easeInBounce (x, t*2, 0, c, d) * .5 + b;
+		return jQuery.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
+	}
+});
+
+/*
+ *
+ * TERMS OF USE - EASING EQUATIONS
+ * 
+ * Open source under the BSD License. 
+ * 
+ * Copyright Â© 2001 Robert Penner
+ * All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without modification, 
+ * are permitted provided that the following conditions are met:
+ * 
+ * Redistributions of source code must retain the above copyright notice, this list of 
+ * conditions and the following disclaimer.
+ * Redistributions in binary form must reproduce the above copyright notice, this list 
+ * of conditions and the following disclaimer in the documentation and/or other materials 
+ * provided with the distribution.
+ * 
+ * Neither the name of the author nor the names of contributors may be used to endorse 
+ * or promote products derived from this software without specific prior written permission.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY 
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ *  COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ *  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+ *  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED 
+ * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ *  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
+ * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ *
+ */

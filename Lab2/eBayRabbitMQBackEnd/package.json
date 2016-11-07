@@ -1,0 +1,15 @@
+{
+  "name": "ebayrabbitmqbackend",
+  "version": "1.0.0",
+  "description": "Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)\r  ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "mongoose-auto-increment": "^5.0.1"
+  }
+}

@@ -1,0 +1,23 @@
+//<!--
+// \include\js\_base\ebayBaseObjs.js 
+
+function EBayObject(pParent,pName)
+{if(!this.objType)
+this.objType="EBayObject";this.parent=pParent;this.name=pName;this.document=document;this.window=window;this.REGISTER=ebObjectRegister;this.COPY=ebObjectCopy;}
+function ebObjectRegister(pName,pVal)
+{eval("this."+pName+"=pVal;");}
+function ebObjectCopy(pObj)
+{for(var i in pObj)
+{var prop=eval("pObj."+i),ti="this."+i;if(prop&&(typeof(eval("prop.COPY"))=="function")&&prop.objType&&(i!="parent"))
+{eval(ti+"=new "+prop.objType+"();");eval(ti).COPY(prop);}
+else if((i!="window")&&(i!="document"))
+eval(ti+"=prop;");}}
+function EBayConfigObject(pName)
+{if(!this.objType)
+this.objType="EBayConfigObject";this.base=EBayObject;this.base(null,pName);this.GET=ebConfigObjectGetString;}
+function ebConfigObjectGetString(pStrName)
+{var s=eval("this."+pStrName);var re,token,args=arguments,len=args.length;for(var i=1;i<len;i++)
+{token="<#"+i+"#>";re=new RegExp(token,"gi");if(s.indexOf(token)!=-1)
+s=s.replace(re,args[i])}
+return s;}
+// b=18099599 -->

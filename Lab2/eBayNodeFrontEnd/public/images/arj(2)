@@ -1,0 +1,34 @@
+cbalo({"ads":
+ {
+  "version": 1,
+  "count": 1,
+  "pixels":"http://ebay-u.openx.net/w/1.0/pd?plm=3&ph=cbccbe7f-66d5-4bc1-b360-746e87815390",
+  "ad": [
+        {
+         "adunitid":538146898,
+         "adid":0,
+         "type":"html",
+         "html":"<div id='beacon_EAw9A5sWHG87vQJkVd7Ntqp_7n' style='position: absolute; left: 0px; top: 0px; visibility: hidden;'><img src='http://ebayus-d.openx.net/w/1.0/ri?ts=1fHJpZD0yMzkxZjdhMi0zOTg5LTRjZDctYTQwZS1kMzI5NjhjNGZiNzZ8cnQ9MTQ3NTQzMzg2MHxhdWlkPTUzODE0Njg5OHxhdW09RE1JRC5XRUJ8YXVwZj1kaXNwbGF5fHNpZD01MzcyMjQxNzh8cHViPTUzNzEyMTYyNXxwYz1VU0R8cmFpZD01YzVlN2ZiOC05NTU4LTQ3YjAtYTI1OS1iYWU1OGFkYmQ2NGV8dXI9dlM0bGwzdHdrcA'/></div><a target=\"_blank\" href=\"http://pages.ebay.com/creditcard/?channel=0&promo=154\"><img src=\"http://pagead2.googlesyndication.com/simgad/15985695753513632033\" border=\"0\" width=\"300\" height=\"250\" alt=\"\"></a>",
+         "is_fallback":1,
+         "ts":"1fHJpZD0yMzkxZjdhMi0zOTg5LTRjZDctYTQwZS1kMzI5NjhjNGZiNzZ8cnQ9MTQ3NTQzMzg2MHxhdWlkPTUzODE0Njg5OHxhdW09RE1JRC5XRUJ8YXVwZj1kaXNwbGF5fHNpZD01MzcyMjQxNzh8cHViPTUzNzEyMTYyNXxwYz1VU0R8cmFpZD01YzVlN2ZiOC05NTU4LTQ3YjAtYTI1OS1iYWU1OGFkYmQ2NGV8dXI9dlM0bGwzdHdrcA",
+         "cpipc":0,
+         "pub_rev":"",
+         "adv_id":":",
+         "brand_id":"",
+         "creative":[
+           {
+             "width":"300",
+             "height":"250",
+             "target":"_blank",
+             "mime":"text/html",
+             "media": "<a target=\"_blank\" href=\"http://pages.ebay.com/creditcard/?channel=0&promo=154\"><img src=\"http://pagead2.googlesyndication.com/simgad/15985695753513632033\" border=\"0\" width=\"300\" height=\"250\" alt=\"\"></a>",
+             "tracking":{
+               "impression":"http://ebayus-d.openx.net/w/1.0/ri?ts=1fHJpZD0yMzkxZjdhMi0zOTg5LTRjZDctYTQwZS1kMzI5NjhjNGZiNzZ8cnQ9MTQ3NTQzMzg2MHxhdWlkPTUzODE0Njg5OHxhdW09RE1JRC5XRUJ8YXVwZj1kaXNwbGF5fHNpZD01MzcyMjQxNzh8cHViPTUzNzEyMTYyNXxwYz1VU0R8cmFpZD01YzVlN2ZiOC05NTU4LTQ3YjAtYTI1OS1iYWU1OGFkYmQ2NGV8dXI9dlM0bGwzdHdrcA",
+               "inview":"http://ebayus-d.openx.net/w/1.0/rvi?ts=1fHJpZD0yMzkxZjdhMi0zOTg5LTRjZDctYTQwZS1kMzI5NjhjNGZiNzZ8cnQ9MTQ3NTQzMzg2MHxhdWlkPTUzODE0Njg5OHxhdW09RE1JRC5XRUJ8YXVwZj1kaXNwbGF5fHNpZD01MzcyMjQxNzh8cHViPTUzNzEyMTYyNXxwYz1VU0R8cmFpZD01YzVlN2ZiOC05NTU4LTQ3YjAtYTI1OS1iYWU1OGFkYmQ2NGV8dXI9dlM0bGwzdHdrcA",
+               "click":"http://ebayus-d.openx.net/w/1.0/rc?ts=1fHJpZD0yMzkxZjdhMi0zOTg5LTRjZDctYTQwZS1kMzI5NjhjNGZiNzZ8cnQ9MTQ3NTQzMzg2MHxhdWlkPTUzODE0Njg5OHxhdW09RE1JRC5XRUJ8YXVwZj1kaXNwbGF5fHNpZD01MzcyMjQxNzh8cHViPTUzNzEyMTYyNXxwYz1VU0R8cmFpZD01YzVlN2ZiOC05NTU4LTQ3YjAtYTI1OS1iYWU1OGFkYmQ2NGV8dXI9dlM0bGwzdHdrcA"
+             }
+           }
+         ]
+        }]
+ }
+});

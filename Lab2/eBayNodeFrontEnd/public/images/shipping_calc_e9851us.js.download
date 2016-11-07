@@ -1,0 +1,15 @@
+//<!--
+// \include\js\SendShippingCalcParams.js 
+<!--
+function SendShippingParams(path,getValues){var originZipCode='';var bMachinable='';var packageSize='';var higherUnitWeight='';var lowerUnitWeight='';var packHandlingFee='';var price='';if(getValues)
+{originZipCode=encodeURIComponent(document.PaymentShipping.originatingzip.value);if(document.PaymentShipping.oddshapedpackage.checked){document.PaymentShipping.oddshapedpackage.value="TRUE";}else{document.PaymentShipping.oddshapedpackage.value="FALSE";}
+bMachinable=document.PaymentShipping.oddshapedpackage.value;var len=document.PaymentShipping.packagesize.length;for(i=0;i<len;i++){if(document.PaymentShipping.packagesize[i].selected&&document.PaymentShipping.packagesize[i].value!="")
+{packageSize=document.PaymentShipping.packagesize[i].value;}}
+higherUnitWeight=encodeURIComponent(document.PaymentShipping.higherunitweight.value);lowerUnitWeight=encodeURIComponent(document.PaymentShipping.lowerunitweight.value);packHandlingFee=encodeURIComponent(document.PaymentShipping.packaginghandlingfee.value);price=encodeURIComponent(document.PaymentShipping.price.value);}
+path=path+"&originZipCode="+originZipCode+"&bMachinable="+bMachinable+"&packageSize="+packageSize+"&higherUnitWeight="+higherUnitWeight+"&lowerUnitWeight="+lowerUnitWeight+"&packHandlingFee="+packHandlingFee+"&price="+price;hw=window.open(path,"shipcalc","height=620,width=570,status=no,toolbar=no,menubar=no,location=no,resizable=yes,scrollbars=yes,titlebar=no");hw.focus();return false;}
+function openShippingCalculator(path,form){if(form>0){itemId=encodeURIComponent(document.shippingcalcbox.itemId.value);destinationZipCode=encodeURIComponent(document.shippingcalcbox.destinationZipCode.value);var tid='';if(document.shippingcalcbox.TransactionId)
+tid=encodeURIComponent(document.shippingcalcbox.TransactionId.value);path=document.shippingcalcbox.action+"?EmitBuyerShippingCalculator&itemId="+itemId+"&destinationZipCode="+destinationZipCode+"&TransactionId="+tid;}
+win=window.open(path,"","height=620,width=800,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,titlebar=no");win.focus();return false;}
+function openShippingCalculatorNoForm(path,itemId,zipCode){itemId=encodeURIComponent(itemId);path=path+"?EmitBuyerShippingCalculator&itemId="+itemId;if(zipCode){path=path+"&destinationZipCode="+zipCode;}
+win=window.open(path,"","height=450,width=630,status=no,toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,titlebar=no");win.focus();return false;}
+// b=18099599 -->

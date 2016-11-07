@@ -1,0 +1,1 @@
+window.parent.GH_alertDataNB({"errorMessage":{"error":[{"errorId":30016,"domain":"core","severity":"ERROR","category":"REQUEST","message":"User could not be found","longMessage":"User could not be found","actionToTake":"CORRECTINPUTDATA","httpStatusCode":400}]}});

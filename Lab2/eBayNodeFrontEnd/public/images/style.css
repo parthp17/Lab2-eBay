@@ -1,0 +1,671 @@
+/*
+Copyright ©2014 Frooition Ltd. All rights reserved.
+The following HTML, JavaScript and CSS Styling may not be used or reproduced in whole or in part, without the prior permission of Frooition, www.frooition.com.
+All eBay graphics not owned by eBay or eBay associations are the property of the eBay account owner and may not be used without their written authorisation.
+Any person or group of persons found to be in breach of this notice may face legal action.
+*/
+
+/*<========== GENERAL STYLING (contains: background, header, flash, subheader, repeater & footer) ==========>*/
+
+/*<-- background -->*/
+#background {
+	background: url(http://user.froo.com/ea92252324e8e5e01ad1b8849304c8fa/FTT/themes/11310104/files/shared_background.png);
+}
+a:focus { outline: none; }
+
+/*<-- repeater -->*/
+div#container {
+	width: 980px;
+	margin: 0px auto;
+}
+
+/*<-- header -->*/
+div#header {
+	background: url(http://user.froo.com/ea92252324e8e5e01ad1b8849304c8fa/FTT/themes/11310104/files/shared_header.png);
+	height: 182px;
+	width: 980px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	position: relative;
+}
+
+.homelogo {
+	display: block;
+	top: 50px;
+	left: 40px;
+	position: absolute;
+	border: none;
+}
+
+.homelogo img {
+    max-height: 103px;
+    width: auto;
+	border: none;
+}
+
+
+div#centerpane {
+    padding: 0px;
+	margin: 0px 0px 0px 0px;
+    width: 980px;
+	background: url(http://user.froo.com/ea92252324e8e5e01ad1b8849304c8fa/FTT/themes/11310104/files/shared_repeater.png);
+}
+
+div#top {
+    padding: 20px 0px 0px 0px;
+	margin: 0px;
+    width: 980px;
+	background: none;
+	position: relative;
+}
+
+/*<-- footer -->*/
+div#footer {
+	background: url(http://user.froo.com/ea92252324e8e5e01ad1b8849304c8fa/FTT/themes/11310104/files/shared_repeater.png);
+	height: 30px;
+	width: 980px;
+	clear: both; 
+}
+
+/*<========== ITEM DETAILS  ==========>*/
+
+#itemdetails {
+    float: left;
+    margin: 0px 40px 20px 0px;
+    padding: 0;
+    width: 430px;
+}
+
+.itemtitle {
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #333333;
+	font-size: 24px;
+	line-height: 26px;
+	text-transform: none;
+	text-align: left;
+    margin: 0px 0px 15px 0px;
+	padding: 0px 0px 15px 0px;
+	border-bottom: 3px dotted #e6e6e6;
+}
+
+#sma_description {
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #333333;
+	font-size: 14px;
+	line-height: 18px;
+	text-transform: none;
+	text-align: left;
+    margin: 0px 0px 0px 0px;
+}
+
+/*<========== TABS ==========>*/
+
+#tabs { z-index: 0; margin: 0px 40px 40px 40px; float:left; }
+
+#tab1, #tab2, #tab3, #tab4, #tab5  {
+	width: 570px;
+	margin: 0px;
+	z-index: 0;
+}
+
+#tab2, #tab3, #tab4, #tab5  {
+	display: none;
+}
+
+pre.tabcontent {
+	width: 530px;
+ 	white-space: -moz-pre-wrap;
+ 	white-space: -pre-wrap;
+ 	white-space: -o-pre-wrap;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	margin: 0px 0px;
+	padding: 0px 20px;
+	word-wrap: break-word;
+	white-space:normal;
+	background: url(tab_content.gif) repeat;
+	color: #333;
+	text-indent: 0px;
+	z-index: 0;
+}
+
+pre.tabcontent a { color:#000 !important; text-decoration: underline;}
+
+ul.tablinks {
+	width: 570px;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	list-style: none;
+	height: 36px;
+	display: block !important;
+	cursor: pointer;
+	z-index: 0;
+	position: relative;
+	top: 1px;
+}
+
+ul.tablinks li {
+	display: inline;
+	float: left;
+	margin: 0px 2px 0px 0px;
+	padding: 0;
+	z-index: 0;
+}
+
+ul.tablinks a, ul.tablinks span {
+	display: block;
+	width: 138px;
+	padding: 0px 0px;
+	height: 36px;
+	line-height: 35px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: normal;
+	font-size: 14px;
+	z-index: 0;
+}
+
+ul.tablinks a  {
+	background: #e6e6e6;
+	color: #333333;
+}
+
+ul.tablinks a:hover, ul.tablinks span {
+	background: url(tab_over.gif) repeat;
+	color: #333333;
+	position: relative;
+}
+
+div.tabtitle {
+	display: block;
+	height: 15px;
+	width: 570px;
+	background: url(tab_title.gif) no-repeat;
+}
+
+div.tabbase {
+	display: block;
+	height: 15px;
+	width: 570px;
+	background: url(tab_base.gif) no-repeat;
+}
+
+/*<========== About Designer Tab  ==========>*/
+
+#abouttab {
+    float: left;
+    margin: 0px 0px 0px 0px;
+    padding: 0;
+    width: 310px;
+}
+
+.abouttabheader {
+	line-height: 31px;
+	text-align: left;
+	text-indent: 20px;
+	text-transform: uppercase;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: normal;
+	font-size: 14px;
+	color: #333;
+	background: #fff;
+	position: relative;
+	padding: 0px 0px;
+	height: 32px;
+	width: 290px;
+	margin: 0px 0px 0px 0px;
+	border-top: 2px solid #e6e6e6;
+	border-bottom: 2px solid #e6e6e6;
+}
+
+.abouttabcontent {
+	margin: 0px 0px 40px 0px;
+	padding: 15px 20px 15px 20px;
+	width: 250px;
+	background: #f1f1f1;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #333;
+}
+
+.clear { clear: both; }
+
+/*<========== Frooition Credit link colours ==========>*/
+
+#design {
+	margin: 30px 0px 40px 0px;
+	width: 100%;
+	text-align: center;
+	display: block;
+}
+
+#design div {
+	width: 197px;
+	background: url(http://user.froo.com/ea92252324e8e5e01ad1b8849304c8fa/FTT/shared_img/global_logo.gif) no-repeat;
+	margin: 0px auto;
+}
+
+#design div a {
+display: block;
+width: 230px;
+height: 63px;
+}
+
+#design strong {
+display: none;
+}
+
+#seo { display: none; }/*<========== Promo ==========>*/
+
+.more {
+	width: 900px;
+	margin: 0px 40px 0px 40px;
+	padding: 10px 0px;
+	border-top: 2px solid #e6e6e6;
+	border-bottom: 2px solid #e6e6e6;
+}
+
+.moreheader {
+	text-align: center;
+	text-transform: none;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 32px;
+	color: #403e3e;
+	background: #fff;
+	position: relative;
+	padding: 30px 0px;
+	width: 166px;
+	margin: 0px 0px 0px 0px;
+	border-right: 3px dotted #e6e6e6;
+	float: left;
+}
+
+div#more_items_content, #promobox, #sma_promo_widget, #sma_promo_inner,  #sma_promo_inner  ul  {
+	width: 731px;
+	margin: 0px;
+	background: none;
+	height: auto;
+	position: static;
+	top: 0px;
+	left:  0px;
+	background: none;
+	float: left;
+} 
+
+.promoitem, #sma_promo_inner  li{
+	float: left;
+	display: inline;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	text-align: center;
+	padding: 0px 20px 0px 20px ;
+	width: 172px;
+	margin: 0px 0px 0px 0px;
+	color: #666;
+	background: none;
+	height: 171px;
+} 
+
+*html .promoitem, #sma_promo_inner  li{
+	width: 212px  ;
+	height: 201px ;
+} 
+
+#sma_promo_inner ul{
+	width: 950px ;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+	float: left;
+}
+
+#sma_promo_inner
+ {
+	width: 950px ;
+	margin: 0px  ;
+	padding: 0px 0px 30px 30px  ;
+	float: left;
+}
+
+*html #sma_promo_inner
+ {
+	width: 731px ;
+}
+
+
+#sma_promo_inner  li img{
+	border: none ;
+} 
+
+#sma_promo_inner  li table, #sma_promo_inner  li table td{
+	width: 170px ;
+	text-align: left ;
+} 
+
+#sma_promo_inner  li a.ignr {
+	font-weight: bold ;
+	text-decoration: none ;
+	font-weight: bold ;
+	color: #000 ;
+	font-size: 11px  ;
+	display: block ;
+	padding: 0px 0px 0px 0px ;
+	
+} 
+
+#sma_promo_inner a.promopic {
+    color: #525252;
+    display: block;
+    min-height: 60px;
+}
+
+#sma_promo_inner  li a.buynow, #sma_promo_inner  li .promo_divider, #sma_promo_inner  li a.details { display: none;}
+
+
+.scroll_right , .scroll_left {
+	display: none ;
+}
+
+div#promobackup {
+    font-family:  Tahoma, Geneva, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	text-decoration: none;
+	text-align: center;
+	padding: 0px;
+	color: #999;
+}
+
+	
+div#promobackup a {
+    color: #333  ;
+    font-weight: bold  ;
+    text-decoration: underline ;
+	font-size: 16px  ;
+	font-family: Tahoma, Geneva, sans-serif;
+}
+
+
+.price  { 
+	color: #333 ;
+	font-size: 14px ;
+	font-weight: bold ;
+	padding: 5px 0px 0px 0px  ;
+}
+
+/* XPROMO OVERRIDE STYLING */
+
+.more {
+    border-bottom: 2px solid #E6E6E6;
+    border-top: 2px solid #E6E6E6;
+    float: left;
+    margin: 0 40px;
+    padding: 10px 0;
+    width: 900px;
+}
+
+
+.moreheader {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-right: 3px dotted #E6E6E6;
+    color: #403E3E;
+    float: left;
+    font-family: Tahoma,Geneva,sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    height: 128px;
+    line-height: 32px;
+    margin: 0;
+    padding: 30px 0;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    width: 166px;
+}
+
+
+#sma_promo_inner {
+    float: left;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 730px;
+}
+
+
+#sma_promo_inner ul {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+.promoitem, #sma_promo_inner li {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    color: #666666;
+    display: inline;
+    float: left;
+    font-family: Tahoma,Geneva,sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    height: 204px;
+    margin: 0;
+    padding: 0 20px;
+    text-align: center;
+    width: 140px;
+}
+	
+	
+	
+#sma_promo_inner li table, #sma_promo_inner li table td {
+    text-align: left;
+    width: 100%;
+}
+
+
+#sma_promo_inner li a.ignr {
+    color: #000000;
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 0;
+    text-decoration: none;
+}
+
+/*<========== Image gallery ==========>*/
+
+div#showcase {
+	width: 430px;
+	float: left;
+	margin: 0px 40px 0px 40px;
+	position: relative;
+}
+
+#thumbsbox {
+width: 412px;
+float: left;
+overflow: hidden;
+margin: 0px 0px 0px 18px;
+}
+
+.cfroothumb {
+display: block;
+border: none;
+margin: 0px 20px 20px 0px;
+float: left;
+width: 84px;
+height: 84px;
+text-align: center;
+}
+#froothumb3, #froothumb7, #froothumb11, #froothumb15, #froothumb19 { margin: 0px 0px 20px 0px; } 
+
+.cfroothumb img {
+max-width: 84px;
+max-height: 84px;
+}
+
+/* ========================= */
+/* =====IMAGE ZOOM CSS====== */
+/* ========================= */
+
+#sma_imageviewer {
+padding: 10px 0px ;
+position: relative ;
+}
+
+#imageviewer_container {
+float: left ;
+margin: 0 0 10px 0px ;
+padding: 0 ;
+text-align: center ;
+width: 430px ;
+z-index: 80 ;
+overflow: hidden ;
+}
+
+#imageviewer_container #standard_image {
+float: left ;
+display: inline ;
+width: 430px ;
+padding: 0px ;
+margin: 0px ;
+height: auto ;
+border: none ;
+}
+
+#imageviewer_container #standard_image table {
+padding: 0px ;
+margin: 0px ;
+border: 0px ;
+}
+
+#imageviewer_container #standard_image td {
+border: 0 none ;
+height: auto ;
+margin: 0 ;
+padding: 0px ;
+width: 430px ;
+border: none ;
+}
+
+#frooimage_zoom_outer {
+background: #e1e1e1;
+right: 100px;
+top: 20px;
+margin: 0;
+padding: 10px;
+position: absolute;
+visibility: hidden;
+width: 300px;
+z-index: 100;
+}
+
+#frooimage_zoom_inner {
+position: relative;
+width: 300px;
+height: 300px;
+}
+
+#frooimage_zoom {
+position: absolute;
+top: 0px;
+left: 0px;
+width:300px;
+height:300px;
+border: 1px solid #d2d2d2;
+background: #fff;
+}
+
+#frooimage_zoom_middle{
+height: 18px;
+width: 155px;
+line-height: 17px;
+margin: 0 0 10px 154px;
+padding: 0 0 0px 20px;
+font-family: Tahoma, Geneva, sans-serif;
+font-weight: normal;
+font-size: 11px;
+color: #666;
+text-transform: none;
+clear: both;
+text-align: center;
+background: url(http://user.froo.com/ea92252324e8e5e01ad1b8849304c8fa/FTT/themes/11310104/files/enlarge.gif) left no-repeat;
+}
+
+#thumb_image{
+width: 335px;
+margin: 0px auto;
+text-align: center;
+padding: 0px;
+}
+
+#thumb_image a{
+display: inline-block;
+border: none;
+margin: 0px 0px 0px 18px;
+width: 51px;
+height: 68px;
+background: #e8e8e8;
+}
+
+#imageviewer_base {
+width: 335px;
+margin: 0px auto;
+height: 11px;
+}
+
+#frooimage {
+padding: 0px;
+margin: 0px;
+}
+
+div.mojozoom_marker {
+position : absolute;
+cursor : crosshair;
+}
+
+div.mojozoom_border {
+position : absolute;
+left:0px;
+top:0px;
+border: 1px solid none;
+width:100%;
+height:100%;
+}
+
+div.mojozoom_fill {
+position : absolute;
+left:0px;
+top:0px;
+width:100%;
+height:100%;
+background-color : white;
+opacity : 0.4;
+-moz-opacity : 0.4;
+-khtml-opacity : 0.4;
+filter:alpha(opacity=40);
+}
+
+img.mojozoom_img {
+padding : 0px;
+border: 0px;
+}
+
+div.mojozoom_imgctr {
+position : absolute;
+margin-left : 20px;
+border : 1px solid black;
+}
+pre.sma_tabcontent, div.sma_tabcontent, pre.tabcontent, div.tabcontent {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+	font-family: 'arial';
+}
