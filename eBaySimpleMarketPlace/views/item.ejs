@@ -1,0 +1,437 @@
+
+<!DOCTYPE html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/" lang="en">
+<head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      <link rel='stylesheet' href='/stylesheets/signin.css' />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+      <!-- <script src="angularjs/shopping.js"></script> -->
+      <!-- <script src="javascript/signin.js" type="text/javascript"></script> -->
+      <script src="angularjs/item.js"></script>
+<style type="text/css">
+body #Body .btn, body #Body c-std {
+filter:none;
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#0079bc',endColorstr='#00509d')";
+}
+</style>
+
+	<meta name="viewport"/> 
+	<meta name="layout" content="main" />
+	<!-- Use ?ForceSiteSpeedGauge=true for forcing -->
+	<title> Items | eBay </title><link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.ebay.com/itm/Bluetooth-Wireless-Headset-Stereo-Headphone-Earphone-Sport-Handfree-Universal-/371378758681" /><link rel="canonical" href="http://www.ebay.com/itm/Bluetooth-Wireless-Headset-Stereo-Headphone-Earphone-Sport-Handfree-Universal-/371378758681" /><link rel="alternate" href="http://www.ebay.com/itm/Bluetooth-Wireless-Headset-Stereo-Headphone-Earphone-Sport-Handfree-Universal-/371378758681" hrefLang="en-us" /><link rel="alternate" href="android-app://com.ebay.mobile/ebay/link/?nav=item.view&amp;id=371378758681&amp;referrer=http%3A%2F%2Frover.ebay.com%2Froverns%2F1%2F711-13271-9788-0%3Fmpcl%3Dhttp%253A%252F%252Fwww.ebay.com%252Fitm%252FBluetooth-Wireless-Headset-Stereo-Headphone-Earphone-Sport-Handfree-Universal-%252F371378758681%253Fpt%253DLH_DefaultDomain_0" /><link rel="alternate" href="http://www.ebay.com/itm/Bluetooth-Wireless-Headset-Stereo-Headphone-Earphone-Sport-Handfree-Universal-/371378758681?_ul=BY" hrefLang="ru-by" /><link rel="alternate" href="http://www.ebay.com/itm/Bluetooth-Wireless-Headset-Stereo-Headphone-Earphone-Sport-Handfree-Universal-/371378758681?_ul=KZ" hrefLang="ru-kz" />
+
+    <!-- adding lens js -->
+<link href="http://ir.ebaystatic.com/rs/v/04n3uyrglyyjlm5v4ojtvkhfoiu.css" type="text/css" rel="stylesheet"><link href="http://ir.ebaystatic.com/rs/v/aan0jlbbw22ehi1gfw0klolfa23.css" type="text/css" rel="stylesheet"><link href="http://ir.ebaystatic.com/rs/v/fqqfcktn0q1ptput2w4afjzlpuw.css" type="text/css" rel="stylesheet"><style type="text/css">body .is.vi-ppc-main .mm-dp {
+width:35%;
+}
+
+#vi-snippet-description-main.u-padB20 {
+    padding-top:10px;
+    float:left;
+}
+
+.vi-descsnpt-feedbacklnk {
+    position: relative;
+    top: -20px;
+    width: 500px;
+    margin-left: 250px;
+}
+
+.asqMain {
+    clear:both;
+}
+
+div#bsi-c {
+clear: both;
+}
+.vi-pco-bboxtxt-Ins * {
+	font-weight: normal !important;
+	color: #0654ba !important;
+}</style><style type="text/css">
+				html a:link{
+					color: #0654ba;
+				}
+				ul#bc a:link{
+					color: #0654ba;
+				}
+				.mbg a:link{
+					color: #0654ba !important;
+				}
+				.mbg-l a:link{
+					color: #0654ba !important;
+				}
+				#Body .nav-tabs-m a:link{
+					color: #0654ba;
+				}
+			</style>			
+		</head>
+<script>
+         var id = GetURLParameter('id');
+         function GetURLParameter(sParam)
+      {
+          var sPageURL = window.location.search.substring(1);
+          var sURLVariables = sPageURL.split('&');
+          for (var i = 0; i < sURLVariables.length; i++) 
+          {
+              var sParameterName = sURLVariables[i].split('=');
+              if (sParameterName[0] == sParam) 
+              {
+                  return sParameterName[1];
+              }
+          }
+      }
+         document.getElementById("item_id").value= id;
+        
+      
+ </script>
+<body ng-app="item" ng-controller="item" class="sz1200 index redux no-touch today stdln en_US rvi gh-flex" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAKCAYAAAB10jRKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBJREFUeNpEyqERADAIBMGbbwSH+qhA/6URXMyqBUhFBLIP6ip0ezk2zExqC58nwACVZwX67tO41gAAAABJRU5ErkJggg==&quot;), url(&quot;data:image/jpeg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABVAAD/4QMraHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MCA2MS4xMzQ3NzcsIDIwMTAvMDIvMTItMTc6MzI6MDAgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUgTWFjaW50b3NoIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjM5RDRDOEYzQ0QzNjExRTFBRTIwRkUzMzM4MTZCOEQzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjM5RDRDOEY0Q0QzNjExRTFBRTIwRkUzMzM4MTZCOEQzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzlENEM4RjFDRDM2MTFFMUFFMjBGRTMzMzgxNkI4RDMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzlENEM4RjJDRDM2MTFFMUFFMjBGRTMzMzgxNkI4RDMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAACAQEBAQECAQECAwIBAgMDAgICAgMDAwMDAwMDBQMEBAQEAwUFBQYGBgUFBwcICAcHCgoKCgoMDAwMDAwMDAwMAQICAgQDBAcFBQcKCAcICgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAAkACADAREAAhEBAxEB/8QAYwABAQEBAAAAAAAAAAAAAAAAAAECCQEBAAAAAAAAAAAAAAAAAAAAABABAAEDAgUDAwUAAAAAAAAAAREhAhIAMfBBYSIyUaETsfFiccFCggMRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AO7clpAhbVm52g330EItG1cY2PRd3f25aCN6DyBneh1WePoFvcWRxibt5x3Jo1H04AXXBbyMav49YmpoDfbatygWmRWIGksJOgJbOUtpbNyz4+q1roF1y0tO47pOSi5RPN5cAR/0ttEUyt7m6dq71emgo3TksJ3JK4k7+VR9NBcriniFd9q7oPtoM8isNvd3MxMzc1J/TQLh/wAysW2i3TPi1J326aCyQj2x7MzO+gWsXYzEBcfjNDnz46AVtFaB4k+LUlh9uADnT49pccs4y+2gM/w8o7fKc6z+0fbQZPlxcfCH45zjOXj6aDT8s2/HM/2jLrFNB//Z&quot;); background-repeat: repeat-x, repeat, repeat; background-position: 0px 30px, 0% 0%, 0% 0%;">
+
+<!-- Default filmstrip js used with main image -->
+		<!-- adding filmstrip js used in main pic and with images carousel  -->
+		
+	<div id="gh-gb" tabindex="-1"></div>
+      <div id="pushdownAdFragment">
+         <script type="text/javascript">$df.set('ph_pushdownAdFragment','pushdownAdFragment')</script>
+      </div>
+      <div id="headerFragment">
+         <script type="text/javascript">$df.set('ph_headerFragment','headerFragment')</script>
+         <div class="fl col_100p clearfix">
+            <style>.gh-hide-if-nocss{display:none;}.gh-ar-hdn{color:#fff}</style>
+            <!--[if lt IE 9]>
+            <div id="gh" role="banner" class="gh-IE8 gh-flex gh-pre-js gh-w gh-simpleH ">
+               <![endif]--><!--[if (gte IE 9)|!(IE)]><!-->
+               <header id="gh" role="banner" class="gh-w gh-simpleH">
+                  <div id="gh-top" class="gh-hide-if-nocss">
+                     <ul id="gh-topl">
+                        
+						<li class="gh-t gh-spr" style="padding: 6px 5px"><a href="" ng-click = "profile();"><span  class="gh-ug-guest" >Hi <%= fname%>!</span> </a></li>
+						<li class="gh-t gh-spr " ><a href="" ng-click = "signOut();" class="gh-p"><span class="gh-eb-li gh-dd rt"> Sign Out </span></a></li>
+                        <li class="gh-t gh-spr " ><span class="gh-eb-li gh-dd rt"> Last Logged In: <%= lastLogged%></span></li>
+                        <li class="gh-t gh-spr " ><a href="/sell"  class="gh-p"><span class="gh-eb-li gh-dd rt">Sell</span></a></li>
+                     </ul>
+                     <ul id="gh-eb">
+                        <li id="gh-eb-My" class="gh-eb-li gh-dd rt" data-imp="10">
+                           <div class="gh-menu">
+                              <a href="/home"  _sp="m570.l2919" class="gh-eb-li-a">My Home</a>
+                           </div>
+                        </li>
+                        <li  class="gh-eb-li rt"><a href="/cart" _sp="m570.l2633"  class="gh-eb-li-a" ><i id="gh-cart-i" class="gh-sprRetina"></i></a></li>
+                     </ul>
+                  </div>
+                  <!--[if lt IE 9]>
+            </div>
+            <![endif]--><!--[if (gte IE 9)|!(IE)]><!--></header><!--<![endif]--><!--ts:2016.10.01.07:00--><!--rq:--><!--rvr:94RUG5-->
+            <div class="ribbon">
+               <div class="icon"></div>
+            </div>
+        
+	  <div id="CenterPanelDF"><div id="CenterPanel"
+					class="  ebaylocale_en_US ebay_longlngsite   ">
+					<style>
+/* PicturePanel */
+#PicturePanel div.img {
+	border:1px solid #ccc;
+	background-color:white;
+}
+/* BuyBox */
+.actPanel  {
+	border-top:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+.watchListCmp {
+	border-bottom:1px solid #ccc;
+	border-left:1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+</style>
+<h3 class="vi-inheritstyl">
+	<div class="tmpnl">
+	<div id="msgPanel" class="pnl u-dspn">
+	<div class="msg">
+		<div class="msgPad" aria-relevant="all" aria-atomic="true" aria-live="assertive" >
+			<span class="statusContent">
+				<span class="statusLeftContent">
+					<span id="w1-4-_msg" class="msgTextAlign" ></span>
+						</span>
+				<span class="statusRightContent">
+					</span>
+				<div style="clear: both;"></div>
+			</span>
+		</div>
+		
+	</div>
+</div>
+<div id="listingHistory"></div><div id="otherMsg"></div></div>
+
+</h3> 
+
+
+<div id="vi_sme_prmts_bnr_cntr1" class="vi-sme-ss-v1">
+					<div id="promotionBanner" class="dli-mb12">
+						
+							
+										
+								</div>
+				</div>
+			<!--  Placement 100005 -->
+<!-- Placement 100011 && 100012 -->
+<div id="CenterPanelInternal" class="">
+<div id="PicturePanel" class="pp-c">
+	<h3 class="g-hdn">Picture Information</h3>
+	<div class="pp-ic pp-ic300">
+		<div class="l-shad lftd  img img300">
+			<table class="img img300">
+				
+			</table>
+		</div>
+		<div class="spr"></div>
+		<div class="u-cb" style="height:20px;"></div>
+		
+	
+	
+	
+<div class="vi_pl_panel" id="viEnlargeImgLayer">
+	<button class="vi_pl_cls_btn">X</button>
+	<div class="vi_img_crsl_cmp">
+	<div class="vi_img_crsl_imgpl ">
+		<a title="To Previous Image" aria-label="To Previous Image" class="pntrArr pntrArrPrev pntrArrImg activePrev" href="javascript:;"></a>
+		<table class="vi_img_crsl_tbl">
+			<tbody>
+				<tr>
+					<td class="vi_img_crsl_tbl">			
+						<div class="vi_img_crsl_ctr"><img id="viEnlargeImgLayer_img_ctr" alt="" src="http://ir.ebaystatic.com/pictures/aw/pics/s.gif" clk=""></div>						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a title="To Next Image" aria-label="To Next Image" class="pntrArr pntrArrNext pntrArrImg activeNext" href="javascript:;"></a>
+	</div>
+</div>		
+
+
+			</div>
+
+	
+	</div>
+	
+</div>
+
+<div><!-- <input type="text" name="id" id="item_id"> -->
+		<h1 class="it-ttl" itemprop="name" id="itemTitle"><span class="g-hdn">Details about  &nbsp;</span><span ><%= itemName%> </span></h1>
+				
+
+		<!-- DO NOT change linkToTagId="rwid" as the catalog response has this ID set  -->
+				
+		</div>
+	<div class="it-rlBr  it-rlBr300 " style="">
+					</div>
+			<span id="vi-lkhdr-itmTitl" class="u-dspn"></span>
+<div id="RightSummaryPanel" class="rsp-c" >	
+			
+			<div style="clear: both;"></div>
+				<div class="si-cnt si-cnt-eu vi-grBr vi-padn0 c-std" style="height:100%;">
+
+	<div >
+		<div class="si-inner">
+		<h3>Seller information</h3>
+		<%= seller%>
+		<h4>selling from</h4>
+		<%= location%>
+			</div>
+		
+	<div class="si-content ">
+				
+					
+				<div id="storeSeller" style="display:inline;"><div class="si-ss-eu">
+				
+			</div>	
+		</div><div class="si-pd-a" style="overflow: hidden;">
+					
+						<div class="vi-soi-inline-cnt">
+		<div id="vi-soi-inline-div" style="display:none;padding-top:10px;">
+		<span style="float:left;color:#333;">More...</span>
+		<span><a href="#"  style="font-size:12px;margin-right:4px;float:right;" id="vi-soilayer-alllnk">See all</a></span>
+			<div style="clear:both;"></div>
+		<div style="height:auto;">
+	<div id="vi-soilayer-inner-cntr" style="margin:5px 0px 10px 0px;height:60px;"></div>
+	<div id="vi-soilayer-inner-cntr-none" style="display:none;">batterygallery has no other items for sale.</div>
+	</div>
+		</div>
+		</div>
+	</div>
+				</div>
+	</div>
+</div>
+</div><div id="rtm_html_1527"></div>
+	</div> 	
+	<div id="LeftSummaryPanel" class="lsp-c lsp-cRight  lsp-cL300  lsp-de">
+		<div id="mainContent" role="main" tabindex="-1" aria-labelledby="itemInfoLabel" class="is " style="overflow:hidden;" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+
+	<h2 id="itemInfoLabel" class="g-hdn">Item Information</h2>
+	<!-- <form action="" method="post" name="viactiondetails"> -->
+ 		<div class="nonActPanel ">
+		
+	
+		
+		<div>
+	<div class="u-flL lable">Item Name: </div>
+	<div class="u-flL condText  "  id="vi-itm-cond" itemprop="itemCondition"><span > <%= itemName%></span></div>
+
+		</div>
+
+<!-- offscreen timer widget -->
+			<!-- some comment -->
+			<!-- volume pricing -->
+			<!-- volume pricing ends -->
+			<div class="u-cb spcr"></div>
+	<span id="sel-msku-variation" style="display:none">-1</span>
+		<div class="vi-msku-cntr ">
+		    	<div class="vi-bbox-dspn  u-flL lable ">Description:</div>
+		    	<div class="u-flL condText  "  id="vi-itm-cond" itemprop="itemCondition"><span ><%= itemDesc %></span> </label></div>
+			</div>
+
+			<div class="u-cb spcr"></div>
+	<span id="sel-msku-variation" style="display:none">-1</span>
+		<div class="vi-msku-cntr ">
+		    	<div class="vi-bbox-dspn  u-flL lable ">Quantity:</div>
+		    	<div class="u-flL condText  "  id="vi-itm-cond" itemprop="itemCondition"><span ><%= itemQuantity%></span> </label></div>
+					
+			</div>
+			<div class="u-cb spcr"></div>
+	<span id="sel-msku-variation" style="display:none">-1</span>
+			<div class="vi-msku-cntr ">
+	<div class="u-flL lable">Item Id: </div>
+	<div class="u-flL condText "  id="vi-itm-coind" itemprop="itemCondition"><span > <%= itemId%></span></div>
+	</div>
+			<div style="display:none" id="mskuTmpClone"></div>
+      <div style="display:none" id="mskuTmpCloneBtn"></div>
+<!-- for VIP-425 -->	
+	<div class="u-cb spcr"></div>
+	
+<div class="">
+	<div class="u-flL lable quantity"></div>
+	<div class="u-flL  sh-col" id="test12"></div>
+	<div>		
+		<div class="u-flL qtyCntVal vi-bboxrev-posabs vi-bboxrev-dsplinline">
+			
+			
+			
+			
+			<span class="qtyTxt vi-bboxrev-dsplblk  vi-qty-fixAlignment feedbackON" style="" >
+				
+				<span class="vi-qty-vert-algn vi-qty-slash">  </span>
+        <span class="vi-qtyS-hot-red  vi-bboxrev-dsplblk vi-qty-vert-algn vi-qty-pur-lnk">
+			</span>
+		</span>
+		
+				
+			</span>
+			
+			<div id="w1-15-_errMsg" class="u-cb err"> </div>
+			<!-- generating Id's array -->
+			<div class="u-dspn"> 
+				<b id="w1-15_qtyErr_0">Please enter a quantity of $qty_dummy$ or less</b>
+				<b id="w1-15_qtyErr_1">Please enter a quantity of 1</b>
+				<b id="w1-15_qtyErr_2">Purchases are limited to $qty_dummy$ per buyer</b>
+				<b id="w1-15_qtyErr_3">Please enter quantity of 1 or more</b>
+				<b id="w1-15_qtyErr_4">Please enter a lower number</b>
+				<b id="w1-15_qtyErr_5">Choose quantity that is less than $qty_dummy1$ or equal to $qty_dummy$</b>
+				<b id="w1-15_qtyErr_6">You can only choose quantity that is equal to $qty_dummy$</b>
+			</div>
+		</div>
+	</div>
+	<div class="u-cb spcr"></div>
+	</div>
+</div>
+		<div class="c-std vi-ds3cont-box-marpad">
+		<div class="actPanel  vi-noborder ">	
+		<div class="u-cb spcr  vi-bbox-spcr15 "></div>
+				
+				<div class="u-cb">
+					<div class="vi-bbox-dspn u-flL lable binLable" id="prcIsum-lbl">Price:</div>
+					<div  id="vi-mskumap-none" style=""  class="u-flL w29 vi-price">
+			
+	<span class="notranslate" id="prcIsum" itemprop="price"  style="" content="6.95"><span >US $ <%= itemPrice%></span></span>
+	<div id="isum-shipCostDiv" class="sh-CostBB"></div>
+		<span itemprop="availability" content="http://schema.org/InStock"></span>
+	<span itemprop="priceCurrency" content="USD"></span>
+	<!--Added for VAT message - DE site. Show VAT included msg just below the price. Converted price message should come after this message.-->
+	<!-- Vat Excluded message -->
+	</div>
+	<!-- inserting code for another button -->
+						<!-- code ends  -->
+						<div class="u-flL">
+							<a  role="button"  _sp='p2047675.l1473' id="isCartBtn_btn" class="btn btn-scnd btn-m vi-VR-btnWdth-L" href="javascript:;" vib="vib" rel="nofollow" ng-click="addToCart(<%= itemId%>);">
+							Add to cart</a>
+						</div>
+					</div>			
+			<div class="u-cb spcr vi-bbox-spcr10"></div>
+		<div class="u-cb  ">
+				
+						<span id="atcLnk" class="atc-link vi-bboxrev-dsplblk" style="display:none">
+	Added to <a href="http://cart.payments.ebay.com/sc/add?srt=01000100000050101127068070085915dbdd7e78a5aed62d3d8d54e3b991b64c582e35e40e1d295730e1f9acc31f16dd629c8d0e48d7c407890436d00227e9918cd68a160e1af642c8e625f5e64c007ec1bbd66cf7cda2&amp;ssPageName=VIFS:ATC">your cart</a></span>
+</div>
+			<div class="u-cb spcr"></div>
+			</div>
+</div>
+		<div id="vi-lkhdr-v4-plchdr"></div>
+			<div id="vi-spw-atf">
+				</div>
+			
+			<div id="shippingSummary"><div class="u-cb spcr"></div>
+					<div class="u-cb spcr"></div>
+	<div>
+	
+             
+             
+        </div>
+    </div>
+	
+	</div>
+
+
+<!-- Error build tag(class com.ebay.webres.resource.tag.UseScriptTag) with value(null)! --></div>
+</div>
+
+	<div style="clear:both"></div>
+</div>
+				</div><div id="vi_zoomEnl_plc_hldr"></div>
+		<div id="BottomPanelDF"><div id="BottomPanel" style=" margin-bottom:10px; ">
+					<!-- <h2> Bottom panel for Description </h2> -->
+					<!-- Placement 100005 -->
+<div style="height:20px; width:100%; clear:both; "></div> <!-- TODO:remove this line -->
+
+<div id="vi-merch-abf"></div>
+
+		  <div class="oly_upnl" id="vi_sme_bin_int_layer"><div class="vi_sme_bin_int_olp">
+			<div class="vi_sme_bin_int_title">Add to cart to save with this special offer</div>
+			<div class="vi_sme_bin_int_msg">If you Buy It Now, you'll only be purchasing this item. If you'd like to get the additional items you've selected to qualify for this offer, <b>close this window</b> and add these items to your cart.</div>
+			
+			<div class="vi_sme_bin_int_btns">
+				<span style="float:left;">
+					<a href="javascript:;" id="sme_bin_int_blnk" title="" rel="nofollow">Buy only this item</a>
+				</span>
+				<span class="vi_sme_bin_int_btns_algn">
+					<a  role="button"  id="sme_bin_int_cls_btn"  style=""  class="btn btn-ter btn-m " href="javascript:;" vib="vib" rel="nofollow">
+							Close this window</a>
+						</span>
+			</div>
+		</div>
+	</div>
+	<div class="tabbable">
+             
+                
+			<script src="http://ir.ebaystatic.com/rs/v/ug5swannj2zhramycvq3mi4mwih.js" type="text/javascript"></script><script src="http://ir.ebaystatic.com/rs/v/djqvmfbe422cni10y0mpu22ciqa.js" type="text/javascript"></script><script src="http://ir.ebaystatic.com/rs/v/vvi2gr1f42yyzhahh1xf5hhx1u0.js" type="text/javascript"></script><script type="text/javascript" >
+			var rtmUITrackerConfig = {"viewComplete":3,"viewInterval":500,"pageId":2047675,"deactivateAfter":600,"trackingEnabled":"true","samplingRate":100,"hoverMin":500};
+		    var _plsubtInp = {"appId":"viewitem","eventFamily":"ADS","pageId":2047675,"disableImp":true,"env":"PROD"};
+		    _plsubtInp.pageLoadTime = new Date().getTime();
+		    _plsubtInp.samplingRate = rtmUITrackerConfig.samplingRate;
+	        var _tq = [];
+	    </script>
+	    <!-- Error build tag(class com.ebay.webres.resource.tag.UseScriptTag) with value(tbd)! --><script src="http://ir.ebaystatic.com/rs/v/qjcpivl5vq4vreonuk3azwx1gih.js" type="text/javascript"></script><script type="text/javascript">
+			</script></div>
+</body>
+</html>
