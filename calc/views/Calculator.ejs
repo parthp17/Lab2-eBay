@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' /> 
+    
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+
+
+<script src="angularjs/calc.js"></script>
+<style type = text/css>
+</style>
+</head>
+<body ng-app="calc" ng-controller="calc">
+
+<div align="center" >
+<h1 style="font-weight:bold"><%= title%></h1>
+</div>
+<div align="center"style="margin-top: 20px;">
+<span>Operand 1</span><input type = "text" size = "10" ng-model = "operand1" required></input>
+<span>Operand 2</span><input type = "text" size = "10" ng-model = "operand2" required></input>
+<div style="margin-top: 20px;">
+<span><input type = "submit" value = "add" ng-click="calc('add');"></span>
+<span><input type = "submit" value = "sub" ng-click="calc('sub');"></span>
+<span><input type = "submit" value = "mul" ng-click="calc('mul');"></span>
+<span><input type = "submit" value = "div" ng-click="calc('div');"></span>
+<h2 style="color:green" ng-hide = "hideResult">Result: {{result}}</h2>
+<h2 style="color:red" ng-hide = "hideError">Error: {{Error}}</h2>
+</div>
+</div>
+</body>
